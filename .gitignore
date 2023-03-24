@@ -1,0 +1,14 @@
+# folder and files to ignore
+
+# folders 
+Research Assistant/
+assignments/CSC6780/a4/
+assignments/CSC6780/a5/
+assignments/CSC6780/a6/
+assignments/CSC6780/a7/
+assignments/CSC6780/a8/
+
+# files
+grad_projects/MATH6620/NunA_work_area.ipynb
+grad_projects/CSC6780/*.txt
+grad_projects/MATH6620/Lectureslides.pdf
