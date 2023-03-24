@@ -1,6 +1,6 @@
-<h2>
+<h1>
   Georgia State University
-</h2>
+</h1>
 
 ### Degree: Master of Science
 ### Major: Mathematics
