@@ -1,6 +1,7 @@
 # folder and files to ignore
 
 # folders 
+*__pycache__/
 Research Assistant/
 assignments/CSC6780/a4/
 assignments/CSC6780/a5/
