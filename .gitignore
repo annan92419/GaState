@@ -15,3 +15,4 @@ grad_projects/CSC6780/*.txt
 grad_projects/CSC6780/*.ipynb
 grad_projects/MATH6620/Lectureslides.pdf
 *.ipynb_checkpoints/
+*project_main.ipynb
