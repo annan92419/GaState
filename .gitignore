@@ -2,17 +2,13 @@
 
 # folders 
 *__pycache__/
+*hide/
 Research Assistant/
-assignments/CSC6780/a4/
-assignments/CSC6780/a5/
-assignments/CSC6780/a6/
-assignments/CSC6780/a7/
-assignments/CSC6780/a8/
 
 # files
-grad_projects/MATH6620/NunA_work_area.ipynb
-grad_projects/CSC6780/*.txt
-grad_projects/CSC6780/*.ipynb
-grad_projects/MATH6620/Lectureslides.pdf
+*NunA_work_area.ipynb
+*Lectureslides.pdf
 *.ipynb_checkpoints/
 *project_main.ipynb
+*bike_sharing_project.txt
+*NumericalAnalysis.pdf
