@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\title{Data Mining; Assignemt 2}
+\author{Name: Jesse Annan \hspace{0.5cm} | \hspace{0.5cm} ID: 002708111}
+\date{October 2022}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\begin{enumerate}
+    \item[Example 1:] "kitten" $\longrightarrow$ "sitting" \newline
+    Output: 3 \newline
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+          &   & S & I & T & T & I & N & G \\ \hline
+          & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+        K & 1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+        I & 2 & 2 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+        T & 3 & 3 & 2 & 1 & 2 & 3 & 4 & 5 \\ \hline
+        T & 4 & 4 & 3 & 2 & 1 & 2 & 3 & 4 \\ \hline
+        E & 5 & 5 & 4 & 3 & 2 & 2 & 3 & 4 \\ \hline
+        N & 6 & 6 & 5 & 4 & 3 & 3 & 2 & \boxed{3} \\ \hline
+    \end{tabular}
+
+	\hfill
+
+    \item[Example 2:] "GUMBO" $\longrightarrow$ "GAMBOL" \newline
+    Output: 2 \newline
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+         \hline
+          &   & G & A & M & B & O & L \\ \hline
+          & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+        G & 1 & 0 & 1 & 2 & 3 & 4 & 5 \\ \hline
+        U & 2 & 1 & 1 & 2 & 3 & 4 & 5 \\ \hline
+        M & 3 & 2 & 2 & 1 & 2 & 3 & 4 \\ \hline
+        B & 4 & 3 & 3 & 2 & 1 & 2 & 3 \\ \hline
+        O & 5 & 4 & 4 & 3 & 2 & 1 & \boxed{2} \\ \hline
+    \end{tabular}
+\end{enumerate}
+
+
+Yes the output result makes sense. I realized that the cell we are trying to compute is almost always the min of the three closest (computed) cells. 
+
+\end{document}
