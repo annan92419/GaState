@@ -1,0 +1,81 @@
+\documentclass[12pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[none]{hyphenat}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage[titles]{tocloft}
+\graphicspath{{images/}}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+%\setcitestyle{authoryear,open={(},close={)}}
+\usepackage[hidelinks]{hyperref}
+\usepackage[printonlyused]{acronym}
+
+\begin{document}
+%	\renewcommand{\arraystretch}{1.5}
+%	\renewcommand{\baselinestretch}{0}
+	\frontmatter
+	
+	\input{titlepage}
+		
+	\tableofcontents
+	
+	\addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+	\chapter*{List of Abbreviations}
+	\input{abbrevs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+	\mainmatter
+	
+	\chapter{INTRODUCTION}
+	
+	
+	
+	\chapter{METHODS}
+	\section{The Euler's Method}
+	
+	
+	\section{The Modified Euler's Method}
+	
+	
+	\section{The 2nd-Order Runge-Kutta Method}
+	
+	
+	\section{The 4th-Order Runge-Kutta Method}
+	
+	
+	\section{The Adams-Bashforth 4th-Order Explicit Method}
+	
+	
+	\section{The Adams 4th-Order Predictor-Corrector Method}
+	
+	
+	\section{The Runge-Kutta-Fehlberg Method}
+	
+	
+	\section{The Predictor-Corrector Method with variable step sizes}
+	
+	\chapter{NUMERICAL EXPERIMENTS}
+	
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\backmatter
+	
+	\addcontentsline{toc}{chapter}{REFERENCES}
+	\renewcommand{\bibname}{REFERENCES}
+	\bibliography{refs}
+	
+\end{document}
