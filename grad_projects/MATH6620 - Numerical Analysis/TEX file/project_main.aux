@@ -15,29 +15,113 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \AC@reset@newl@bel
 \bibstyle{abbrvnat}
-\@writefile{toc}{\contentsline {chapter}{LIST OF ABBREVIATIONS}{i}{chapter*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{LIST OF ABBREVIATIONS}{ii}{chapter*.1}\protected@file@percent }
 \newacro{ivp}[\AC@hyperlink{ivp}{IVP}]{Initial Value Problem}
+\newacro{de}[\AC@hyperlink{de}{DE}]{Differential Equation}
 \newacro{ode}[\AC@hyperlink{ode}{ODE}]{Ordinary Differential Equation}
 \newacro{rkf}[\AC@hyperlink{rkf}{RKF}]{Runge-Kutta-Fehlberg Method}
 \newacro{rk2}[\AC@hyperlink{rk2}{RK2}]{2nd-Order Runge-Kutta Method}
 \newacro{rk4}[\AC@hyperlink{rk4}{RK4}]{4th-Order Runge-Kutta Method}
+\newacro{lte}[\AC@hyperlink{lte}{LTE}]{Local Truncation Error}
+\newacro{gte}[\AC@hyperlink{gte}{GTE}]{Global Truncation Error}
+\citation{ryan}
+\citation{ivpwiki}
+\citation{krista}
+\citation{ivpwiki}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}METHODS}{2}{chapter.2}\protected@file@percent }
+\AC@undonewlabel{acro:ivp}
+\newlabel{acro:ivp}{{1}{1}{INTRODUCTION}{section*.3}{}}
+\acronymused{ivp}
+\AC@undonewlabel{acro:de}
+\newlabel{acro:de}{{1}{1}{INTRODUCTION}{section*.4}{}}
+\acronymused{de}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Definition}{1}{section.1.1}\protected@file@percent }
+\acronymused{ivp}
+\newlabel{eq:ivp}{{1.1}{1}{Definition}{equation.1.1.1}{}}
+\acronymused{ivp}
+\citation{burden2015numerical}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Objective}{2}{section.1.2}\protected@file@percent }
+\citation{euler1913institutiones}
+\citation{butcher2016numerical}
+\citation{eulwiki}
+\citation{eulpd}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}METHODS}{3}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}The Euler's Method}{2}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}The Modified Euler's Method}{2}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}The 2nd-Order Runge-Kutta Method}{2}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}The 4th-Order Runge-Kutta Method}{2}{section.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}The Adams-Bashforth 4th-Order Explicit Method}{2}{section.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}The Adams 4th-Order Predictor-Corrector Method}{2}{section.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}The Runge-Kutta-Fehlberg Method}{2}{section.2.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.8}The Predictor-Corrector Method with variable step sizes}{2}{section.2.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}NUMERICAL EXPERIMENTS}{3}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}The Euler's Method}{3}{section.2.1}\protected@file@percent }
+\newlabel{m:eul}{{2.1}{3}{The Euler's Method}{section.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Introduction}{3}{subsection.2.1.1}\protected@file@percent }
+\AC@undonewlabel{acro:ode}
+\newlabel{acro:ode}{{2.1.1}{3}{Introduction}{section*.8}{}}
+\acronymused{ode}
+\acronymused{ode}
+\newlabel{eqn:eul1}{{2.1}{3}{Introduction}{equation.2.1.1}{}}
+\citation{eulpd}
+\citation{eulwiki}
+\citation{atkinson1991introduction}
+\citation{atkinson1991introduction}
+\newlabel{eqn:eul}{{{2.2b}}{4}{Introduction}{AMS.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}The Truncation Errors}{4}{subsection.2.1.2}\protected@file@percent }
+\AC@undonewlabel{acro:lte}
+\newlabel{acro:lte}{{1}{4}{The Truncation Errors}{section*.11}{}}
+\acronymused{lte}
+\acronymused{lte}
+\AC@undonewlabel{acro:gte}
+\newlabel{acro:gte}{{2}{4}{The Truncation Errors}{section*.12}{}}
+\acronymused{gte}
+\citation{burden2015numerical}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}The Pseudocode}{5}{subsection.2.1.3}\protected@file@percent }
+\acronymused{ivp}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Euler's Method\relax }}{5}{algorithm.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}The Modified Euler's Method}{6}{section.2.2}\protected@file@percent }
+\newlabel{m:meul}{{2.2}{6}{The Modified Euler's Method}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Introduction}{6}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}The Truncation Errors}{6}{subsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}The Pseudocode}{6}{subsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}The 2nd-Order Runge-Kutta Method}{7}{section.2.3}\protected@file@percent }
+\newlabel{m:rk2}{{2.3}{7}{The 2nd-Order Runge-Kutta Method}{section.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Introduction}{7}{subsection.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}The Truncation Errors}{7}{subsection.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}The Pseudocode}{7}{subsection.2.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}The 4th-Order Runge-Kutta Method}{8}{section.2.4}\protected@file@percent }
+\newlabel{m:rk4}{{2.4}{8}{The 4th-Order Runge-Kutta Method}{section.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Introduction}{8}{subsection.2.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}The Truncation Errors}{8}{subsection.2.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}The Pseudocode}{8}{subsection.2.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}The Adams-Bashforth 4th-Order Explicit Method}{9}{section.2.5}\protected@file@percent }
+\newlabel{m:ab4e}{{2.5}{9}{The Adams-Bashforth 4th-Order Explicit Method}{section.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Introduction}{9}{subsection.2.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}The Truncation Errors}{9}{subsection.2.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}The Pseudocode}{9}{subsection.2.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}The Adams 4th-Order Predictor-Corrector Method}{10}{section.2.6}\protected@file@percent }
+\newlabel{m:ab4pc}{{2.6}{10}{The Adams 4th-Order Predictor-Corrector Method}{section.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Introduction}{10}{subsection.2.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}The Truncation Errors}{10}{subsection.2.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.3}The Pseudocode}{10}{subsection.2.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}The Runge-Kutta-Fehlberg Method}{11}{section.2.7}\protected@file@percent }
+\newlabel{m:rkf}{{2.7}{11}{The Runge-Kutta-Fehlberg Method}{section.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}Introduction}{11}{subsection.2.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}The Truncation Errors}{11}{subsection.2.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.3}The Pseudocode}{11}{subsection.2.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.8}The Predictor-Corrector Method with variable step sizes}{12}{section.2.8}\protected@file@percent }
+\newlabel{m:abpcvs}{{2.8}{12}{The Predictor-Corrector Method with variable step sizes}{section.2.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.1}Introduction}{12}{subsection.2.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.2}The Truncation Errors}{12}{subsection.2.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8.3}The Pseudocode}{12}{subsection.2.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}NUMERICAL EXPERIMENTS}{13}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibdata{refs}
-\@writefile{toc}{\contentsline {chapter}{REFERENCES}{4}{chapter.3}\protected@file@percent }
-\gdef \@abspage@last{7}
+\bibcite{atkinson1991introduction}{{1}{1991}{{Atkinson}}{{}}}
+\bibcite{burden2015numerical}{{2}{2015}{{Burden et~al.}}{{Burden, Faires, and Burden}}}
+\bibcite{butcher2016numerical}{{3}{2016}{{Butcher}}{{}}}
+\bibcite{eulpd}{{4}{}{{Dawkins}}{{}}}
+\bibcite{euler1913institutiones}{{5}{1913}{{Euler}}{{}}}
+\bibcite{krista}{{6}{}{{King}}{{}}}
+\bibcite{ryan}{{7}{}{{Melton}}{{}}}
+\bibcite{eulwiki}{{8}{a}{{wikipedia.org}}{{}}}
+\bibcite{ivpwiki}{{9}{b}{{wikipedia.org}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{REFERENCES}{14}{chapter.3}\protected@file@percent }
+\gdef \@abspage@last{17}

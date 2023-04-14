@@ -15,10 +15,12 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{setspace}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage{enumitem}
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
-%\setcitestyle{authoryear,open={(},close={)}}
+\setcitestyle{authoryear,open={(},close={)}}
 \usepackage[hidelinks]{hyperref}
 \usepackage[printonlyused]{acronym}
 
@@ -27,7 +29,7 @@
 %	\renewcommand{\baselinestretch}{0}
 	\frontmatter
 	
-	\input{titlepage}
+	%\input{titlepage}
 		
 	\tableofcontents
 	
@@ -39,33 +41,217 @@
 	\mainmatter
 	
 	\chapter{INTRODUCTION}
-	
-	
+		\begin{spacing}{1.2}
+			
+			An \ac{ivp} is a \ac{de} together with one or more initial values.[\citenum{ryan}][\citenum{ivpwiki}] It takes what would otherwise be an entire rainbow of possible solutions and whittles them down to one specific solution. The basic idea behind this problem is that, once you differentiate a function, you lose some information about that function, more specifically, you lose the constant. By integrating $ y'(x) $, you get a family of solutions that only differ by a constant.[\citenum{krista}]
+			
+			\section{Definition}
+				An \ac{ivp} is a differential equation: [\citenum{ivpwiki}]
+				\begin{equation}
+					\begin{split} \label{eq:ivp}
+						y'(t) & = f(t, y(t)) \text{ with } f:\Omega \subset \mathbb{R} \times \mathbb{R}^n \rightarrow \mathbb{R}^n \\
+						(t_{0}, y_{0}) & \in \Omega, \text{ called the initial condition.}
+					\end{split}
+				\end{equation}
+				\subsection*{Observations: }
+				\begin{enumerate}
+					\item The given $ f $ in (\ref{eq:ivp}) is the defining function of \ac{ivp}.
+					\item A unique solution, $ y(t) $, of the (\ref{eq:ivp}) exists and it satisfies $ y(t_{0}) = y_{0} $.
+				\end{enumerate}
+				
+				\newpage
+				
+			\section*{Example}
+				Given $ y'(t) = 5 $ and $ y(0) = -3 $, find $ y(t) $.
+				\subsection*{Solution:}
+					We first integrate our $ y'(t) $, then we substitute our initial condition to determine the constant (from our integration).
+					\begin{equation*}
+						\begin{split}
+							\int y'(t) dt & = \int 5 dt \\
+							 y(t) & = 5x + c \hspace*{0.3cm} \text{ where $ c $ is the constant of integration} \\
+							 \text{using } y(t = 0) & = -3 \\
+							 -3 & = 5(0) + c \\
+							 -3 & = c \\
+							 y(t) & = 2x - 3
+						\end{split}
+					\end{equation*}
+					\textbf{Remark: } \text{Note that with a different $ y(0) $, the solution would be different.} 
+			
+			
+			\section{Objective}
+				In real-life situations, the differential equation that models a problem is too complicated to solve exactly, therefore one of the ways which is used to solved such problems is using methods which approximates the solution of the original problem.[\citenum{burden2015numerical}] In this report, I will discuss methods that approximates solutions at certain specified timestamps. \newline
+				They are: [\S\ \ref{m:eul}] The Euler's Method, [\S\ \ref{m:meul}] The Modified Euler's Method, [\S\ \ref{m:rk2}] The 2nd-Order Runge-Kutta Method, [\S\ \ref{m:rk4}] The 4th-Order Runge-Kutta Method, \newline [\S\ \ref{m:ab4e}] The Adams-Bashforth 4th-Order Explicit, [\S\ \ref{m:ab4pc}] The Adams 4th-Order Predictor Corrector, [\S\ \ref{m:rkf}] The Runge-Kutta-Fehlberg, and [\S\ \ref{m:abpcvs}] The Predictor-Corrector methods
+			
+		\end{spacing}
+		
 	
 	\chapter{METHODS}
-	\section{The Euler's Method}
-	
-	
-	\section{The Modified Euler's Method}
-	
-	
-	\section{The 2nd-Order Runge-Kutta Method}
-	
-	
-	\section{The 4th-Order Runge-Kutta Method}
-	
-	
-	\section{The Adams-Bashforth 4th-Order Explicit Method}
-	
-	
-	\section{The Adams 4th-Order Predictor-Corrector Method}
-	
-	
-	\section{The Runge-Kutta-Fehlberg Method}
-	
-	
-	\section{The Predictor-Corrector Method with variable step sizes}
-	
+	\section{The Euler's Method} \label{m:eul}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			The Euler method, named after Leonhard Euler, was published in his three-volume work \textit{Institutiones Calculi Integralis} in the years 1768 to 1770, and republished in his collected works.\citep{euler1913institutiones} [\citenum{butcher2016numerical}] The Euler method is a first-order numerical procedure for solving \ac{ode} with a given initial value. It is the most basic explicit method for numerical integration of \ac{ode} and is the simplest Runge–Kutta method.[\citenum{eulwiki}] \newline
+			The fundamental idea of the method is based on the principle that, we can compute (or approximate) the shape of an unknown curve - in the form of a differential equation $ f(t,y) $, which starts at a given point $ y_{0} $ and time $ t_{0} $. With this information known, we can proceed to calculate the slope (tangent line) of the curve at $ y_{0} $. \newline
+			The tangent line is [\citenum{eulpd}]
+			\begin{equation*}
+				y = y_{0} + f(t_{0}, y_{0}) \cdot (t - t_{0})
+			\end{equation*}
+			Now we assume that $ f(t0, y0) $ is sufficiently accurate, and thus, taking a small step along that tangent line, we can approximate the actual value of the solution, $ y_{1} $, at timestamp $ t_{1} $, using the formula:
+			\begin{equation} \label{eqn:eul1}
+				y_{1} = y_{0} + f(t_{0}, y_{0}) \cdot (t_{1} - t_{0})
+			\end{equation}
+			In general, we continue to find the next approximated solution $ y_{n+1} $ at $ t_{n+1} $, if we have the $ nth $ timestamp $ t_{n} $ and the approximation to the solution at this point, $ y_{n} $. We only need to modify (\ref{eqn:eul1}) in this manner:
+			\begin{equation} \tag{2.2a}
+				y_{n+1} = y_{n} + f(t_{n}, y_{n}) \cdot (t_{n+1} - t_{n})
+			\end{equation}
+			If we assume uniform step sizes between times, $ t $, we can define, $ h = t_{n+1} - t_{n} $. Therefore, the formula is simplified as [\citenum{eulpd}]
+			\begin{equation} \label{eqn:eul} \tag{2.2b}
+				y_{n+1} = y_{n} + h \cdot f(t_{n}, y_{n})
+			\end{equation}
+			
+			\subsection{The Truncation Errors}
+				\begin{enumerate}
+					\item The \textbf{\ac{lte}} of the Euler method is the error made in a single step. It is the difference between the numerical solution after one step, $y_{1}$, and the exact solution (obtained using Taylor's expansion) at time $t_{1} = t_{0} + h$.[\citenum{eulwiki}]
+					\begin{equation*}
+						\begin{split}
+							\text{The numerical solution: } y_{1} & = y_{0} + hf(t_{0}, y_{0}) \\
+							\text{The exact solution: } y(t_{0} + h) & = y(t_{0}) + hy'(t_{0}) + \frac{1}{2}h^2y^{''}(t_{0}) + O(h^{3}) \\
+							\ac{lte} & = y(t_{0} + h) - y_{1} = \frac{1}{2}h^2y^{''}(t_{0}) + O(h^{3})
+						\end{split}
+					\end{equation*}
+					
+					\item The \textbf{\ac{gte}} is the error at a fixed time $t_{i}$, after however many steps the method needs to take to reach that time from the initial time. The global truncation error is the cumulative effect of the local truncation errors committed in each step.[\citenum{atkinson1991introduction}]
+					\begin{equation*}
+						|y(t_{i}) - y_{i}| \leq \frac{hM}{2L} (e^{L(t_{i} - t_{0})} - 1)
+					\end{equation*}
+					where $ M $ is an upper bound on the second derivative of y on the given interval and $ L $ is the Lipschitz constant of $ f $.[\citenum{atkinson1991introduction}]
+				\end{enumerate}
+			
+			\subsection{The Pseudocode}
+				To approximate the solution of the \ac{ivp}
+				\[ y' = f(t,y), a \leq t \leq b, y(a) = \alpha \]
+				at $ (N+1) $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
+				
+				\begin{algorithm}
+					\caption{Euler's Method}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; integer $ N $; initial condition $ \alpha $
+						\ENSURE approximation $ w $ to $ y $ at the $ (N + 1) $ values of $ t $
+						\STATE $ h = (b - a) / N; t = a; w = \alpha $
+						\FOR{$ i = 1, 2, \cdots, N$}
+							\STATE $ w = w + hf(t,w); $ \COMMENT{Compute $ w_{i} $}
+							\STATE $ t = a + ih $ \COMMENT{Compute $ t_{i} $}
+							\RETURN $ (t, w) $
+						\ENDFOR
+					\end{algorithmic}
+				\end{algorithm}
+			
+		\end{spacing}
+
+	\clearpage
+	\section{The Modified Euler's Method} \label{m:meul}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+	\clearpage
+	\section{The 2nd-Order Runge-Kutta Method} \label{m:rk2}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+		\clearpage
+	\section{The 4th-Order Runge-Kutta Method} \label{m:rk4}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+		\clearpage
+	\section{The Adams-Bashforth 4th-Order Explicit Method} \label{m:ab4e}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+		\clearpage
+	\section{The Adams 4th-Order Predictor-Corrector Method} \label{m:ab4pc}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+		\clearpage
+	\section{The Runge-Kutta-Fehlberg Method} \label{m:rkf}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+		\clearpage
+	\section{The Predictor-Corrector Method with variable step sizes} \label{m:abpcvs}
+		\begin{spacing}{1.2}
+			
+			\subsection{Introduction}
+			
+			
+			\subsection{The Truncation Errors}
+			
+			
+			\subsection{The Pseudocode}
+			
+		\end{spacing}
+		
+
+
+
+
+
+
 	\chapter{NUMERICAL EXPERIMENTS}
 	
 	

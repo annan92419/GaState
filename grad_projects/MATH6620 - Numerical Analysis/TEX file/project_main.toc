@@ -1,13 +1,39 @@
-\contentsline {chapter}{LIST OF ABBREVIATIONS}{i}{chapter*.1}%
+\contentsline {chapter}{LIST OF ABBREVIATIONS}{ii}{chapter*.1}%
 \contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}METHODS}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}The Euler's Method}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The Modified Euler's Method}{2}{section.2.2}%
-\contentsline {section}{\numberline {2.3}The 2nd-Order Runge-Kutta Method}{2}{section.2.3}%
-\contentsline {section}{\numberline {2.4}The 4th-Order Runge-Kutta Method}{2}{section.2.4}%
-\contentsline {section}{\numberline {2.5}The Adams-Bashforth 4th-Order Explicit Method}{2}{section.2.5}%
-\contentsline {section}{\numberline {2.6}The Adams 4th-Order Predictor-Corrector Method}{2}{section.2.6}%
-\contentsline {section}{\numberline {2.7}The Runge-Kutta-Fehlberg Method}{2}{section.2.7}%
-\contentsline {section}{\numberline {2.8}The Predictor-Corrector Method with variable step sizes}{2}{section.2.8}%
-\contentsline {chapter}{\numberline {3}NUMERICAL EXPERIMENTS}{3}{chapter.3}%
-\contentsline {chapter}{REFERENCES}{4}{chapter.3}%
+\contentsline {section}{\numberline {1.1}Definition}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objective}{2}{section.1.2}%
+\contentsline {chapter}{\numberline {2}METHODS}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The Euler's Method}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Introduction}{3}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}The Truncation Errors}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}The Pseudocode}{5}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}The Modified Euler's Method}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Introduction}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}The Truncation Errors}{6}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}The Pseudocode}{6}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}The 2nd-Order Runge-Kutta Method}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Introduction}{7}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}The Truncation Errors}{7}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}The Pseudocode}{7}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}The 4th-Order Runge-Kutta Method}{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Introduction}{8}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}The Truncation Errors}{8}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}The Pseudocode}{8}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}The Adams-Bashforth 4th-Order Explicit Method}{9}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Introduction}{9}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}The Truncation Errors}{9}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}The Pseudocode}{9}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6}The Adams 4th-Order Predictor-Corrector Method}{10}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Introduction}{10}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}The Truncation Errors}{10}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}The Pseudocode}{10}{subsection.2.6.3}%
+\contentsline {section}{\numberline {2.7}The Runge-Kutta-Fehlberg Method}{11}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Introduction}{11}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}The Truncation Errors}{11}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}The Pseudocode}{11}{subsection.2.7.3}%
+\contentsline {section}{\numberline {2.8}The Predictor-Corrector Method with variable step sizes}{12}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Introduction}{12}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}The Truncation Errors}{12}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.3}The Pseudocode}{12}{subsection.2.8.3}%
+\contentsline {chapter}{\numberline {3}NUMERICAL EXPERIMENTS}{13}{chapter.3}%
+\contentsline {chapter}{REFERENCES}{14}{chapter.3}%
