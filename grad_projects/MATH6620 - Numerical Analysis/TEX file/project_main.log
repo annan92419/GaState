@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.4.14)  15 APR 2023 15:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.4.14)  15 APR 2023 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -832,14 +832,14 @@ Overfull \hbox (12.01012pt too wide) in paragraph at lines 315--315
 ] [13
 
 ]
-Overfull \hbox (23.37581pt too wide) in paragraph at lines 363--363
+Overfull \hbox (23.37581pt too wide) in paragraph at lines 366--366
 []\T1/cmr/bx/n/17.28 The Adams 4th-Order Predictor-Corrector Method 
  []
 
 [14
 
 ] [15]
-Overfull \hbox (6.81511pt too wide) in paragraph at lines 427--429
+Overfull \hbox (6.81511pt too wide) in paragraph at lines 430--432
 \T1/cmr/m/n/12 The Runge^^UKutta^^UFehlberg method (or Fehlberg method) is an a
 l-go-rithm in nu-mer-i-cal
  []
@@ -851,12 +851,24 @@ Overfull \vbox (140.9676pt too high) has occurred while \output is active []
 
 
 [17]
-Overfull \hbox (21.19463pt too wide) in paragraph at lines 493--493
+Overfull \hbox (21.19463pt too wide) in paragraph at lines 496--496
 []\T1/cmr/bx/n/17.28 The Adams Vari-able Step-Size Predictor-Corrector 
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 532--533
+Overfull \hbox (17.51802pt too wide) in paragraph at lines 500--502
+\T1/cmr/m/n/12 The Adams Vari-able Step-Size Predictor-Corrector is an-other va
+ri-able step-size mul-ti-step
+ []
+
+
+Overfull \hbox (10.25177pt too wide) in paragraph at lines 500--502
+\T1/cmr/m/n/12 to the lo-cal er-ror, the predictor-corrector tech-niques al-way
+s gen-er-ate two ap-prox-i-ma-tion
+ []
+
+
+Underfull \hbox (badness 3780) in paragraph at lines 543--544
 [] []$\OML/cmm/m/it/12 w[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 w[] \OT1/cmr/m/n/
 12 + [][55\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]; w[]\OT1/cmr/
 m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 59\OML/cmm/m/it/12 f\OT1/cmr/m/n/
@@ -880,29 +892,21 @@ Chapter 3.
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 696.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
-96.
+nput line 707.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+07.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) (./myfunc.py) [22
 
 ]
-Overfull \hbox (17.55513pt too wide) in paragraph at lines 722--739
+Overfull \hbox (17.55513pt too wide) in paragraph at lines 733--750
 [][] 
  []
 
 
-Overfull \hbox (3.14595pt too wide) in paragraph at lines 743--760
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (3.14595pt too wide) in paragraph at lines 764--781
+Overfull \hbox (3.14595pt too wide) in paragraph at lines 754--771
 [][] 
  []
 
@@ -910,7 +914,7 @@ Overfull \hbox (3.14595pt too wide) in paragraph at lines 764--781
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (23.6592pt too wide) in paragraph at lines 785--802
+Overfull \hbox (3.14595pt too wide) in paragraph at lines 775--792
 [][] 
  []
 
@@ -918,7 +922,15 @@ Overfull \hbox (23.6592pt too wide) in paragraph at lines 785--802
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (23.43279pt too wide) in paragraph at lines 806--823
+Overfull \hbox (23.6592pt too wide) in paragraph at lines 796--813
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (23.43279pt too wide) in paragraph at lines 817--834
 [][] 
  []
 
@@ -926,75 +938,75 @@ Overfull \hbox (23.43279pt too wide) in paragraph at lines 806--823
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [23] [24] [25]
-<images//euler.png, id=673, 387.4475pt x 266.9975pt>
+<images//euler.png, id=678, 387.4475pt x 266.9975pt>
 File: images//euler.png Graphic file (type png)
 <use images//euler.png>
-Package pdftex.def Info: images//euler.png  used on input line 831.
+Package pdftex.def Info: images//euler.png  used on input line 842.
 (pdftex.def)             Requested size: 202.10269pt x 139.2754pt.
-<images//euler_err.png, id=675, 393.47pt x 262.9825pt>
+<images//euler_err.png, id=680, 393.47pt x 262.9825pt>
 File: images//euler_err.png Graphic file (type png)
 <use images//euler_err.png>
-Package pdftex.def Info: images//euler_err.png  used on input line 837.
+Package pdftex.def Info: images//euler_err.png  used on input line 848.
 (pdftex.def)             Requested size: 202.10269pt x 135.07834pt.
-<images//mod_euler.png, id=676, 387.4475pt x 262.9825pt>
+<images//mod_euler.png, id=681, 387.4475pt x 262.9825pt>
 File: images//mod_euler.png Graphic file (type png)
 <use images//mod_euler.png>
-Package pdftex.def Info: images//mod_euler.png  used on input line 848.
+Package pdftex.def Info: images//mod_euler.png  used on input line 859.
 (pdftex.def)             Requested size: 202.10269pt x 137.18105pt.
-<images//mod_euler_err.png, id=677, 399.4925pt x 265.99374pt>
+<images//mod_euler_err.png, id=682, 399.4925pt x 265.99374pt>
 File: images//mod_euler_err.png Graphic file (type png)
 <use images//mod_euler_err.png>
-Package pdftex.def Info: images//mod_euler_err.png  used on input line 854.
+Package pdftex.def Info: images//mod_euler_err.png  used on input line 865.
 (pdftex.def)             Requested size: 202.10269pt x 134.56726pt.
-<images//rk2.png, id=678, 387.4475pt x 262.9825pt>
+<images//rk2.png, id=683, 387.4475pt x 262.9825pt>
 File: images//rk2.png Graphic file (type png)
 <use images//rk2.png>
-Package pdftex.def Info: images//rk2.png  used on input line 865.
+Package pdftex.def Info: images//rk2.png  used on input line 876.
 (pdftex.def)             Requested size: 202.10269pt x 137.18105pt.
-<images//rk2_err.png, id=679, 399.4925pt x 265.99374pt>
+<images//rk2_err.png, id=684, 399.4925pt x 265.99374pt>
 File: images//rk2_err.png Graphic file (type png)
 <use images//rk2_err.png>
-Package pdftex.def Info: images//rk2_err.png  used on input line 871.
+Package pdftex.def Info: images//rk2_err.png  used on input line 882.
 (pdftex.def)             Requested size: 202.10269pt x 134.56726pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images//rk4.png, id=682, 387.4475pt x 262.9825pt>
+<images//rk4.png, id=687, 387.4475pt x 262.9825pt>
 File: images//rk4.png Graphic file (type png)
 <use images//rk4.png>
-Package pdftex.def Info: images//rk4.png  used on input line 882.
+Package pdftex.def Info: images//rk4.png  used on input line 893.
 (pdftex.def)             Requested size: 202.10269pt x 137.18105pt.
-<images//rk4_err.png, id=683, 393.47pt x 274.02374pt>
+<images//rk4_err.png, id=688, 393.47pt x 274.02374pt>
 File: images//rk4_err.png Graphic file (type png)
 <use images//rk4_err.png>
-Package pdftex.def Info: images//rk4_err.png  used on input line 888.
+Package pdftex.def Info: images//rk4_err.png  used on input line 899.
 (pdftex.def)             Requested size: 202.10269pt x 140.74957pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images//aexp.png, id=686, 387.4475pt x 262.9825pt>
+<images//aexp.png, id=691, 387.4475pt x 262.9825pt>
 File: images//aexp.png Graphic file (type png)
 <use images//aexp.png>
-Package pdftex.def Info: images//aexp.png  used on input line 899.
+Package pdftex.def Info: images//aexp.png  used on input line 910.
 (pdftex.def)             Requested size: 202.10269pt x 137.18105pt.
-<images//aexp_err.png, id=687, 406.51875pt x 262.9825pt>
+<images//aexp_err.png, id=692, 406.51875pt x 262.9825pt>
 File: images//aexp_err.png Graphic file (type png)
 <use images//aexp_err.png>
-Package pdftex.def Info: images//aexp_err.png  used on input line 905.
+Package pdftex.def Info: images//aexp_err.png  used on input line 916.
 (pdftex.def)             Requested size: 202.10269pt x 130.74052pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images//apc4.png, id=688, 387.4475pt x 262.9825pt>
+<images//apc4.png, id=693, 387.4475pt x 262.9825pt>
 File: images//apc4.png Graphic file (type png)
 <use images//apc4.png>
-Package pdftex.def Info: images//apc4.png  used on input line 916.
+Package pdftex.def Info: images//apc4.png  used on input line 927.
 (pdftex.def)             Requested size: 202.10269pt x 137.18105pt.
-<images//apc4_err.png, id=689, 377.41pt x 274.02374pt>
+<images//apc4_err.png, id=694, 377.41pt x 274.02374pt>
 File: images//apc4_err.png Graphic file (type png)
 <use images//apc4_err.png>
-Package pdftex.def Info: images//apc4_err.png  used on input line 922.
+Package pdftex.def Info: images//apc4_err.png  used on input line 933.
 (pdftex.def)             Requested size: 202.10269pt x 146.73714pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1041,11 +1053,11 @@ hlberg-[]rkf45$[]\T1/cmr/m/n/12 .
 
 ]) [31] (./project_main.aux)
 Package rerunfilecheck Info: File `project_main.out' has not changed.
-(rerunfilecheck)             Checksum: 25A6B35673DB35B5EF0BBD3C7EC53F9F;2699.
+(rerunfilecheck)             Checksum: 0839E3EB51F07FA6E0A5010EF33D4965;2699.
  ) 
 Here is how much of TeX's memory you used:
  17498 strings out of 478023
- 271463 string characters out of 5841208
+ 271466 string characters out of 5841208
  835240 words of memory out of 5000000
  35320 multiletter control sequences out of 15000+600000
  489014 words of font info for 73 fonts, out of 8000000 for 9000
@@ -1075,10 +1087,10 @@ b></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></usr/share/texmf/
 fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/c
 m-super/sftt1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb
 >
-Output written on project_main.pdf (37 pages, 651072 bytes).
+Output written on project_main.pdf (37 pages, 653157 bytes).
 PDF statistics:
- 947 PDF objects out of 1000 (max. 8388607)
- 810 compressed objects within 9 object streams
+ 952 PDF objects out of 1000 (max. 8388607)
+ 815 compressed objects within 9 object streams
  351 named destinations out of 1000 (max. 500000)
  186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

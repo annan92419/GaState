@@ -198,7 +198,7 @@
 				where $ h $ is the step size an $ t_{i+1} = t_{i} + h. $
 			
 			\subsection*{The Truncation Errors}
-				the local truncation error is $ O(h^{3}) $. The modified Euler Method is second order accurate.
+				The local truncation error is $ O(h^{3}) $. The modified Euler Method is second order accurate.
 			
 			\clearpage
 			\subsection*{The Pseudocode}
@@ -316,13 +316,16 @@
 		\begin{spacing}{1.2}
 			
 			%\subsection{Introduction}
-			
+			Adams-Bashforth 4th Order Explicit Method is a member of the Adams-Bashforth family of explicit numerical methods that approximates the solution of an IVP by using a weighted average of previous function values. This method is useful when the function evaluations are relatively cheap and the derivative is known explicitly.  The scheme for Adams-Bashforth explicit methods of order 4 is:[\citenum{burden2015numerical}]			
 			\begin{equation}
 				\begin{split}
 					w_0 & = \alpha \\
 					w_1 & = \alpha_1 \\
 					w_2 & = \alpha_2 \\
 					w_3 & = \alpha_3 \\
+					w_{i+1} & = w_{i} + \frac{h}{24}[ 55f(t_{i} - h, w_{i}) - 59f(t_{i-1} - h, w_{i-1}) \\
+					& + 37f(t_{i-2} - h, w_{i-2}) - 9f(t_{i-3} - h, w_{i-3}) ] \\
+					\text{where } i & = 3, 4, ..., N-1
 				\end{split}
 			\end{equation}
 			
@@ -425,7 +428,7 @@
 			
 			%\subsection{Introduction}
 			The Runge–Kutta–Fehlberg method (or Fehlberg method) is an algorithm in numerical analysis for the numerical solution of ordinary differential equations. It was developed by the German mathematician Erwin Fehlberg and is based on the large class of Runge–Kutta methods.
-			The novelty of Fehlberg's method is that it is an embedded method from the Runge–Kutta family, meaning that identical function evaluations are used in conjunction with each other to create methods of varying order and similar error constants. The method presented in Fehlberg's 1969 paper has been dubbed the RKF45 method, and is a method of order 4 with an error estimator of order 5. By performing one extra calculation, the error in the solution can be estimated and controlled by using the higher-order embedded method that allows for an adaptive stepsize to be determined automatically.[\citenum{rkfmatlab}]
+			The novelty of Fehlberg's method is that it is an embedded method from the Runge–Kutta family, meaning that identical function evaluations are used in conjunction with each other to create methods of varying order and similar error constants.[\citenum{rkfmatlab}] The \ac{rkf} method is used for error control because at each step it provides, at little additional cost, two approximation that can be compared and related to the local error.[\citenum{burden2015numerical}]
 			\begin{equation}
 				\begin{split}
 					k_1 & = hf(t,w); \\
@@ -494,10 +497,18 @@
 		\begin{spacing}{1.2}
 			
 			%\subsection{Introduction}
+			The Adams Variable Step-Size Predictor-Corrector is another variable step-size multistep method. Instead of producing two approximation that can be compared and related to the local error, the predictor-corrector techniques always generate two approximation at each step, so they are naturally candidates for error-control adaptation.[\citenum{burden2015numerical}] \newline
+			The Adams Variable Step-Size Predictor-Corrector uses the four-step explicit Adams Bashforth method as predictor and the three-step implicit Adams-Moulton method as corrector.[\citenum{burden2015numerical}]
+			\begin{equation}
+				\begin{split}
+					\text{Predictor $ y_{t_{i+1}} $: } y_{p} & = y_{t_i} + \frac{h}{24} [ 55f(t_{i}. y_{t_i}) - 59f(t_{i-1}, y_{t_{i-1}}) \\
+					& \hspace*{0.5cm} + 37f(t_{i-2}, y_{t_{i-2}}) - 9f(t_{i-3}, y_{t_{i-3}}) ] + \frac{251}{720}y^{(5)}(\hat{\mu}_i)h^5; \\
+					\text{Corrector $ y_{t_{i+1}} $: } w_{c} & = y_{t_i} + \frac{h}{24} [ 9f(t_{i+1}. y_{t_{i+1}}) - 19f(t_{i}. y_{t_{i}}) \\
+					& \hspace*{0.5cm} - 5f(t_{i-1}. y_{t_{i-1}}) + f(t_{i-2}. y_{t_{i-2}}) ] - \frac{19}{720}y^{(5)}( \tilde{\mu}_i)h^4;
+				\end{split}
+			\end{equation}
 			
-			
-			\subsection*{The Truncation Errors}
-			
+			%\subsection*{The Truncation Errors}
 			
 			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp} 
