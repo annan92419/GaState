@@ -1,4 +1,4 @@
-\begin{thebibliography}{11}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -37,12 +37,33 @@ L.~Euler.
 \newblock \emph{Institutiones Calculi Integralis 2nd Part}, volume~1.
 \newblock Springer Science \& Business Media, 1913.
 
+\bibitem[Geek4Geeks()]{rk2geek}
+Geek4Geeks.
+\newblock Runge-kutta 2nd order method to solve differential equations.
+\newblock URL
+  \url{https://www.geeksforgeeks.org/runge-kutta-2nd-order-method-to-solve-differential-equations}.
+\newblock Accessed: 04-15-2023.
+
+\bibitem[Harder()]{rkfwat}
+D.~W. Harder.
+\newblock Runge kutta fehlberg.
+\newblock URL
+  \url{https://ece.uwaterloo.ca/~dwharder/NumericalAnalysis/14IVPs/rkf45/complete.html}.
+\newblock Accessed: 04-15-2023.
+
 \bibitem[King()]{krista}
 K.~King.
 \newblock How to solve initial value problems.
 \newblock URL
   \url{https://www.kristakingmath.com/blog/solving-initial-value-problems}.
 \newblock Accessed: 04-15-2023.
+
+\bibitem[Mahooti(2023)]{rkfmatlab}
+M.~Mahooti.
+\newblock Runge-kutta-fehlberg (rkf45), 2023.
+\newblock URL
+  \url{https://www.mathworks.com/matlabcentral/fileexchange/73881-runge-kutta-fehlberg-rkf45}.
+\newblock Retrieved April 15, 2023.
 
 \bibitem[Melton()]{ryan}
 R.~Melton.
@@ -67,6 +88,12 @@ wikipedia.org.
 wikipedia.org.
 \newblock Initial value problem, {\natexlab{c}}.
 \newblock URL \url{https://en.wikipedia.org/wiki/Initial_value_problem}.
+\newblock Accessed: 04-15-2023.
+
+\bibitem[wikipedia.org({\natexlab{d}})]{rkwiki}
+wikipedia.org.
+\newblock Runge–kutta methods, {\natexlab{d}}.
+\newblock URL \url{https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods}.
 \newblock Accessed: 04-15-2023.
 
 \end{thebibliography}

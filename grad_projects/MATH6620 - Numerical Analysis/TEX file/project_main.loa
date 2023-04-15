@@ -1,7 +1,10 @@
 \contentsline {algorithm}{\numberline {1}{\ignorespaces :: Euler's Method\relax }}{5}{algorithm.1}%
 \contentsline {algorithm}{\numberline {2}{\ignorespaces :: Modified Euler's Method\relax }}{7}{algorithm.2}%
-\contentsline {algorithm}{\numberline {3}{\ignorespaces :: 2nd-Order Runge-Kutta Method\relax }}{8}{algorithm.3}%
-\contentsline {algorithm}{\numberline {4}{\ignorespaces :: 4th-Order Runge-Kutta Method\relax }}{9}{algorithm.4}%
-\contentsline {algorithm}{\numberline {5}{\ignorespaces :: Adams Forth-Order Predictor-Corrector\relax }}{12}{algorithm.5}%
-\contentsline {algorithm}{\numberline {6}{\ignorespaces :: \ac {rkf}\relax }}{14}{algorithm.6}%
-\contentsline {algorithm}{\numberline {7}{\ignorespaces :: Adams Variable Step-Size Predictor-Corrector\relax }}{16}{algorithm.7}%
+\contentsline {algorithm}{\numberline {3}{\ignorespaces :: \ac {rk2}\relax }}{9}{algorithm.3}%
+\contentsline {algorithm}{\numberline {4}{\ignorespaces :: \ac {rk4}\relax }}{11}{algorithm.4}%
+\contentsline {algorithm}{\numberline {5}{\ignorespaces :: Adams-Bashforth 4th-Order Explicit Method\relax }}{13}{algorithm.5}%
+\contentsline {algorithm}{\numberline {6}{\ignorespaces :: Adams Forth-Order Predictor-Corrector\relax }}{15}{algorithm.6}%
+\contentsline {algorithm}{\numberline {7}{\ignorespaces :: \ac {rkf}\relax }}{17}{algorithm.7}%
+\contentsline {algorithm}{\numberline {8}{\ignorespaces :: Adams Variable Step-Size Predictor-Corrector\relax }}{19}{algorithm.8}%
+\contentsline {algorithm}{\numberline {9}{\ignorespaces :: Adams Variable Step-Size Predictor-Corrector Cont'd\relax }}{20}{algorithm.9}%
+\contentsline {algorithm}{\numberline {20}{\ignorespaces :: Adams Variable Step-Size Predictor-Corrector Cont'd Part 2\relax }}{21}{algorithm.20}%

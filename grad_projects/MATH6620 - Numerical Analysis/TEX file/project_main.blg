@@ -15,53 +15,64 @@ Warning--entry type for "eulpd" isn't style-file defined
 --line 38 of file refs.bib
 Warning--entry type for "heulwiki" isn't style-file defined
 --line 75 of file refs.bib
+Warning--entry type for "rk2geek" isn't style-file defined
+--line 83 of file refs.bib
+Warning--entry type for "rkwiki" isn't style-file defined
+--line 91 of file refs.bib
+Warning--entry type for "rkfmatlab" isn't style-file defined
+--line 99 of file refs.bib
+Warning--entry type for "rkfwat" isn't style-file defined
+--line 108 of file refs.bib
 Warning--empty year in chenadvanced
 Warning--empty year in chenadvanced
 Warning--empty year in eulpd
+Warning--empty year in rk2geek
+Warning--empty year in rkfwat
 Warning--empty year in krista
 Warning--empty year in ryan
 Warning--empty year in eulwiki
 Warning--empty year in heulwiki
 Warning--empty year in ivpwiki
-You've used 11 entries,
+Warning--empty year in rkwiki
+You've used 15 entries,
             2773 wiz_defined-function locations,
-            638 strings with 5685 characters,
-and the built_in function-call counts, 3592 in all, are:
-= -- 295
-> -- 150
-< -- 10
-+ -- 58
-- -- 45
-* -- 220
-:= -- 565
-add.period$ -- 39
-call.type$ -- 11
-change.case$ -- 44
-chr.to.int$ -- 9
-cite$ -- 30
-duplicate$ -- 191
-empty$ -- 353
-format.name$ -- 56
-if$ -- 745
-int.to.chr$ -- 3
+            657 strings with 6278 characters,
+and the built_in function-call counts, 4819 in all, are:
+= -- 405
+> -- 190
+< -- 14
++ -- 75
+- -- 57
+* -- 283
+:= -- 750
+add.period$ -- 55
+call.type$ -- 15
+change.case$ -- 60
+chr.to.int$ -- 12
+cite$ -- 41
+duplicate$ -- 251
+empty$ -- 481
+format.name$ -- 72
+if$ -- 1007
+int.to.chr$ -- 4
 int.to.str$ -- 1
 missing$ -- 9
-newline$ -- 69
-num.names$ -- 44
-pop$ -- 160
+newline$ -- 93
+num.names$ -- 60
+pop$ -- 219
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 49
 quote$ -- 0
-skip$ -- 119
+skip$ -- 161
 stack$ -- 0
-substring$ -- 22
-swap$ -- 15
+substring$ -- 30
+swap$ -- 20
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 101
-warning$ -- 8
-while$ -- 33
+type$ -- 145
+warning$ -- 11
+while$ -- 45
 width$ -- 0
-write$ -- 148
-(There were 14 warnings)
+write$ -- 202
+(There were 21 warnings)

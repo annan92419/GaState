@@ -1,0 +1,10 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Python implementation of (\ref {eq:exp}) and (\ref {eq:expsl})\relax }}{22}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Approximation $ y(t) $ obtained by the Euler's Method\relax }}{26}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Approximation $ y(t) $ obtained by the Modified Euler's Method\relax }}{26}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Approximation $ y(t) $ obtained by the \ac {rk2} Method\relax }}{27}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Approximation $ y(t) $ obtained by the \ac {rk4} Method\relax }}{27}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Approximation $ y(t) $ obtained by the Adam Explicit Method\relax }}{28}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Approximation $ y(t) $ obtained by the Predictor-Corrector Method\relax }}{28}{figure.caption.47}%
