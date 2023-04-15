@@ -16,6 +16,7 @@
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{algorithm}
+\usepackage{float}
 \usepackage{algorithmic}
 \usepackage{enumitem}
 \usepackage{natbib}
@@ -32,6 +33,8 @@
 	%\input{titlepage}
 		
 	\tableofcontents
+	
+	\listofalgorithms
 	
 	\addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
 	\chapter*{List of Abbreviations}
@@ -127,12 +130,12 @@
 					where $ M $ is an upper bound on the second derivative of y on the given interval and $ L $ is the Lipschitz constant of $ f $.[\citenum{atkinson1991introduction}]
 				\end{enumerate}
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp}
 				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
 				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
 				
-				\begin{algorithm}
+				\begin{algorithm}[H]
 					\caption{:: Euler's Method}
 					\begin{algorithmic}[1]
 						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
@@ -168,12 +171,12 @@
 				the local truncation error is $ O(h^{3}) $. The modified Euler Method is second order accurate.
 			
 			\clearpage
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp} 
 				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
 				at $ N $ equally spaced numbers in the interval $ [a, b]: $
 				
-				\begin{algorithm}
+				\begin{algorithm}[H]
 					\caption{:: Modified Euler's Method}
 					\begin{algorithmic}[1]
 						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
@@ -200,12 +203,12 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp} 
 				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
 				at $ N $ equally spaced numbers in the interval $ [a, b]: $
 				
-				\begin{algorithm}
+				\begin{algorithm}[H]
 					\caption{:: 2nd-Order Runge-Kutta Method}
 					\begin{algorithmic}[1]
 						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
@@ -233,12 +236,12 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp} 
 				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
 				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
 				
-				\begin{algorithm}
+				\begin{algorithm}[H]
 					\caption{:: 4th-Order Runge-Kutta Method}
 					\begin{algorithmic}[1]
 						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
@@ -269,12 +272,12 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
 				To approximate the solution of the \ac{ivp} 
 				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
 				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
 				
-%				\begin{algorithm}
+%				\begin{algorithm}[H]
 %					\caption{:: 4th-Order Runge-Kutta Method}
 %					\begin{algorithmic}[1]
 %						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
@@ -305,7 +308,43 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
+				
+				\begin{algorithm}[H]
+					\caption{:: Adams Forth-Order Predictor-Corrector}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
+						\ENSURE approximation $ w $ to $ y $ at the $ N $ values of $ t $
+						\STATE $ h = (b - a) / N $
+						\STATE $ t_0 = a $
+						\STATE $ w_0 = \alpha $
+						\FOR{$ i = 0, 1, 2 $}
+							\STATE $ k_1 = hf(t_{i}, w_{i}); $ \COMMENT{Compute starting values using Runge-Kutta Method}
+							\STATE $ k_2 = hf(t_{i} + \frac{h}{2}, w_{i} + \frac{k_{1}}{2}); $
+							\STATE $ k_3 = hf(t_{i} + \frac{h}{2}, w_{i} + \frac{k_{2}}{2}); $
+							\STATE $ k_4 = hf(t_{i} + h, w_{i} + k_{3}); $
+							\STATE $ K = k_{1} + 2k_{2} + 2k_{3} + k_{4} $
+							\STATE $ w_{i+1} = w_{i} + \frac{K}{6}; $
+							\STATE $ t_{i+1} = a + ih $
+							\RETURN $ (t_{i}, w_{i}) $
+						\ENDFOR
+						\FOR{$ i = 3, \cdots, N-1 $}
+							\STATE $ t = a + ih; $
+							\STATE $ w_{i+1} = w_{3} + h \frac{[ 55f(t_{3}. w_{3}) - 59f(t_{2}, w_{2}) + 37f(t_{1}, w_{1}) - 9f(t_{0}, w_{0}) ]}{24}; $ \COMMENT{Predict $ w_{i+1} $}
+							\STATE $ w_{i+1} = w_{3} + h \frac{[ 9f(t_{i+1}. w_{i+1}) - 19f(t_{3}, w_{3}) - 5f(t_{2}, w_{2}) + f(t_{1}, w_{1}) ]}{24}; $ \COMMENT{Correct $ w_{i+1} $}
+							\RETURN $ (t, w) $
+							\FOR{$ j = 0, 1, 2 $}
+								\STATE $ t_{j} = t_{j+1}; $
+								\STATE $ w_{j} = w_{j+1} $
+							\ENDFOR
+							\STATE $ t_{3} = t_{i+1}; $
+							\STATE $ w_{3} = w_{i+1} $
+						\ENDFOR
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
@@ -319,12 +358,58 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode} 
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				with local truncation error within a given tolerance: [\citenum{burden2015numerical}]
+				
+				\begin{algorithm}[H]
+					\caption{:: \ac{rkf}}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} a tolerance $ TOL $; \hspace*{0.2cm} initial condition $ \alpha $ \hspace*{0.2cm} maximum step size $ hmax $; \hspace*{0.2cm} minimum step size $ hmin $
+						\ENSURE $ t, w, h $ where $ w $ approximates $ y(t) $ and the step size $ h $ was used, or a message that the minimum step size was exceeded.
+						\STATE $ t = a; \hspace*{0.2cm} w = \alpha; \hspace*{0.2cm} h = hmax; Flag=1; $
+						\WHILE{$ Flag==1 $}
+							\STATE $ k_1 = hf(t,w); $
+							\STATE $ k_2 = hf(t + \frac{1}{4}h, w + \frac{1}{4}k_1); $
+							\STATE $ k_3 = hf(t + \frac{3}{8}h, w + \frac{3}{32}k_1 + \frac{9}{32}k_2); $
+							\STATE $ k_4 = hf(t + \frac{12}{13}h, w + \frac{1932}{2197}k_1 - \frac{7200}{2197}k_2 + \frac{7296}{2197}k_3); $
+							\STATE $ k_5 = hf(t + h, w + \frac{439}{216}k_1 - 8k_2 + \frac{3680}{513}k_3 - \frac{845}{4104}k_4); $
+							\STATE $ k_6 = hf(t + \frac{1}{2}h, w - \frac{8}{27}k_1 + 2k_2 - \frac{3544}{2565}k_3 + \frac{1859}{4104}k_4 - \frac{11}{40}k_5); $
+							\STATE $ R = \frac{1}{h} | \frac{1}{360}k_1 - \frac{128}{4275}k_3 - \frac{2197}{75240}k_4 + \frac{1}{50}k_5 + \frac{2}{55}k_6 | $ \hspace*{0.5cm} \COMMENT{Note: $ R = \frac{1}{h} | \tilde{w}_{i+1} - w_{i+1} | $}
+							\IF{$ R \leq TOL $}
+								\STATE $ t = t + h; $
+								\STATE $ w = w + \frac{25}{216}k_1 + \frac{1408}{2565}k_3 + \frac{2197}{4104}k_4 - \frac{1}{5}k_5 $
+								\RETURN $ (t, w, h) $
+							\ENDIF
+							\STATE $ \delta = 0.84 (TOL/R)^{\frac{1}{4}} $
+							\IF{$ \delta \leq 0.1 $} 
+								\STATE $ h = 0.1h $\hspace*{0.5cm} \COMMENT{Calculate new $ h $}
+							\ELSIF{$ \delta \geq 4 $}
+								\STATE $ h = 4h $
+							\ELSE
+								\STATE $ h = \delta h $
+							\ENDIF
+							\IF{$ h > hmax $}
+								\STATE $ h = hmax $
+							\ENDIF
+							\IF{$ t \geq b $}
+								\STATE $ Flag = 0 $
+							\ELSIF{$ t + h > b $}
+								\STATE $ h = b - t $
+							\ELSIF{$ h < hmin $}
+								\STATE $ Flag = 0 $
+								\PRINT "minimum $ h $ exceeded" \hspace*{0.5cm} \COMMENT{Procedure completed unsuccessfully}
+							\ENDIF
+						\ENDWHILE
+						\RETURN $ (t, w) $
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
 		\clearpage
-	\section{The Predictor-Corrector Method with variable step sizes} \label{m:abpcvs}
+	\section{The Adams Variable Step-Size Predictor-Corrector} \label{m:abpcvs}
 		\begin{spacing}{1.2}
 			
 			%\subsection{Introduction}
@@ -333,7 +418,64 @@
 			\subsection*{The Truncation Errors}
 			
 			
-			\subsection{The Pseudocode}
+			\subsection*{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				with local truncation error within a given tolerance: [\citenum{burden2015numerical}]
+				
+				\begin{algorithm}[H]
+					\caption{:: Adams Variable Step-Size Predictor-Corrector}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} a tolerance $ TOL $; \hspace*{0.2cm} initial condition $ \alpha $ \hspace*{0.2cm} maximum step size $ hmax $; \hspace*{0.2cm} minimum step size $ hmin $
+						\ENSURE $ t, w, h $ where $ w $ approximates $ y(t) $ and the step size $ h $ was used, or a message that the minimum step size was exceeded.
+						\STATE \COMMENT{Set up a subalgorithm for the Runge-Kutta 4th-Order method to be called $ RK4(h, v_{0}, x_{0}, v_{1}, x_{1}, v_{2}, x_{2}, v_{3}, x_{3}) $ that accepts as input a step size $ h $ and starting values $ v_{0} \approx y(t_{0}) $ and returns $ \{ (x_{j}, v_{j}) | j = 1, 2, 3 \} $ defined by the following:}
+						\FOR{$ j = 1, 2, 3 $}
+							\STATE $ k_{1} = hf(x_{j-1}, v_{j-1}); $
+							\STATE $ k_{2} = hf(x_{j-1} + \frac{h}{2}, v_{j-1} + \frac{k_{1}}{2}); $
+							\STATE $ k_{3} = hf(x_{j-1} + \frac{h}{2}, v_{j-1} + \frac{k_{2}}{2}); $
+							\STATE $ k_{4} = hf(x_{j-1} + h, v_{j-1} + k_{3}); $
+							\STATE $ K = k_{1} + 2k_{2} + 2k_{3} + k_{4} $
+							\STATE $ v_{j} = v_{j-1} + \frac{K}{6}; $
+							\STATE $ x_{j} = x_{0} + jh $
+						\ENDFOR
+						\STATE $ t_{0} = a; $
+						\STATE $ w_{0} = \alpha; $
+						\STATE $ h = hmax; $
+						\STATE $ Flag = 1 $ \hspace*{0.5cm} \COMMENT{$ Flag $ will be used to exit a loop.}
+						\STATE $ Last = 0 $ \hspace*{0.5cm} \COMMENT{$ Last $ will indicate when the last value is calculated.}
+						\STATE Call $ RK4(h, v_{0}, x_{0}, v_{1}, x_{1}, v_{2}, x_{2}, v_{3}, x_{3}) $
+						\STATE $ Nflag = 1; $ \hspace*{0.5cm} \COMMENT{Indicates computation from $ RK4 $}
+						\STATE $ i = 4; $
+						\STATE $ t = t_{3} + h $
+						\WHILE{$ Flag == 1 $}
+							\STATE $ w_{p} = w_{i-1} + \frac{h}{24} [ 55f(t_{i-1}, w_{i-1}) - 59f(t_{i-2}, w_{i-2}) + 37f(t_{i-3}, w_{i-3}) - 9f(t_{i-4}, w_{i-4}); ] $ \hspace*{0.5cm} \COMMENT{Predict $ w_{i} $}
+							\STATE $ w_{c} = w_{i-1} + \frac{h}{24} [ 9f(t, w_{p}) + 19f(t_{i-1}, w_{i-1}) - 5f(t_{i-2}, w_{i-2}) + f(t_{i-3}, w_{i-3}); ] $ \hspace*{0.5cm} \COMMENT{Correct $ w_{i} $}
+							\STATE $ \sigma = 19 | w_{c} - w_{p} | / 270h $
+							\IF{$ \sigma \leq TOL $}
+								\STATE $ w_{i} = w_{c} $ \hspace*{0.5cm} \COMMENT{Result accepted}
+								\STATE $ t_{i} = t $
+								\IF{$ Nflag == 1 $}
+									\FOR{$ j = i-3, i-2, i-1, i $}
+										\RETURN $ (j, t_{j}, w_{j}, h); $ \hspace*{0.5cm} \COMMENT{Previous results also accepted}
+									\ENDFOR
+								\ELSE
+									\RETURN $ (i, t_{i}, w_{i}, h) $ \hspace*{0.5cm} \COMMENT{Previous results already accepted}
+								\ENDIF
+								\IF{$ Last == 1 $}
+									\STATE $ Flag = 0 $
+								\ELSE %10-16
+									\STATE $ i = i + 1 $
+									\STATE $ Nflag = 0 $
+									\IF{$ \sigma \leq 0.1 TOL $ \OR $ t_{i-1} + h > b $ }
+									\STATE $ q = (TOL / 2\sigma)^{\frac{1}{4}} $ %12
+									\ENDIF
+								\ENDIF
+							%\ELSE % 17 - 19
+							
+							\ENDIF
+						\ENDWHILE
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
