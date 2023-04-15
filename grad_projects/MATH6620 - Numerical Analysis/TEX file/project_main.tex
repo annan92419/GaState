@@ -89,7 +89,7 @@
 	\section{The Euler's Method} \label{m:eul}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			The Euler method, named after Leonhard Euler, was published in his three-volume work \textit{Institutiones Calculi Integralis} in the years 1768 to 1770, and republished in his collected works.\citep{euler1913institutiones} [\citenum{butcher2016numerical}] The Euler method is a first-order numerical procedure for solving \ac{ode} with a given initial value. It is the most basic explicit method for numerical integration of \ac{ode} and is the simplest Runge–Kutta method.[\citenum{eulwiki}] \newline
 			The fundamental idea of the method is based on the principle that, we can compute (or approximate) the shape of an unknown curve - in the form of a differential equation $ f(t,y) $, which starts at a given point $ y_{0} $ and time $ t_{0} $. With this information known, we can proceed to calculate the slope (tangent line) of the curve at $ y_{0} $. \newline
 			The tangent line is [\citenum{eulpd}]
@@ -109,7 +109,7 @@
 				y_{n+1} = y_{n} + h \cdot f(t_{n}, y_{n})
 			\end{equation}
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 				\begin{enumerate}
 					\item The \textbf{\ac{lte}} of the Euler method is the error made in a single step. It is the difference between the numerical solution after one step, $y_{1}$, and the exact solution (obtained using Taylor's expansion) at time $t_{1} = t_{0} + h$.[\citenum{eulwiki}]
 					\begin{equation*}
@@ -129,20 +129,20 @@
 			
 			\subsection{The Pseudocode}
 				To approximate the solution of the \ac{ivp}
-				\[ y' = f(t,y), a \leq t \leq b, y(a) = \alpha \]
-				at $ (N+1) $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
 				
 				\begin{algorithm}
-					\caption{Euler's Method}
+					\caption{:: Euler's Method}
 					\begin{algorithmic}[1]
-						\REQUIRE endpoints $ a, b $; integer $ N $; initial condition $ \alpha $
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
 						\ENSURE approximation $ w $ to $ y $ at the $ (N + 1) $ values of $ t $
-						\STATE $ h = (b - a) / N; t = a; w = \alpha $
-						\FOR{$ i = 1, 2, \cdots, N$}
-							\STATE $ w = w + hf(t,w); $ \COMMENT{Compute $ w_{i} $}
-							\STATE $ t = a + ih $ \COMMENT{Compute $ t_{i} $}
-							\RETURN $ (t, w) $
+						\STATE $ h = (b - a) / N; \hspace*{0.2cm} t_0 = a; \hspace*{0.2cm} w_{0} = \alpha $
+						\FOR{$ i = 0, 1, 2, \cdots, N-1$}
+							\STATE $ w_{i+1} = w_{i} + hf(t_{i},w_{i}); $ \hspace*{0.5cm} \COMMENT{Compute next $ w_{i} $}
+							\STATE $ t = a + ih $ \hspace*{0.5cm} \COMMENT{Compute next $ t_{i} $}
 						\ENDFOR
+						\RETURN $ (t, w) $
 					\end{algorithmic}
 				\end{algorithm}
 			
@@ -152,13 +152,41 @@
 	\section{The Modified Euler's Method} \label{m:meul}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
+			Euler's method is used as the foundation for Modified Euler's method. Euler's method uses the line tangent to the function at the beginning of the interval as an estimate of the slope of the function over the interval, assuming that if the step size is small, the error will be small. However, even when extremely small step sizes are used, over a large number of steps the error starts to accumulate and the estimate diverges from the actual functional value.[\citenum{heulwiki}] \newline
+			The Modified Euler (which may sparingly be referred to as the Heun's method [\citenum{heulwiki}]) was developed to improve the approximated solution at $t_{i+1}$ by taking the arithmetic average of the approximated solution at the slopes $t_{i}$ and $t_{i+1}$. \newline
+			The procedure for calculating the numerical solution to the (\ref{eq:ivp}) by first computing the Euler method to roughly estimate the coordinates of the next point in the solution, and then, the original estimate is recalculated using the rough estimate [\citenum{chenadvanced}]:
+				\begin{equation}
+					\begin{split}
+						\text{rough estimate: } \tilde{y}_{i+1} & = y_{i} + hf(t_{i}, y_{i}) \\
+						\text{original estimate: } y_{i+1} & = y_{i} + \frac{h}{2} \left[f(t_{i}, y_{i}) + f(t_{i+1}, \tilde{y}_{i+1}) \right]
+					\end{split}
+				\end{equation}
+				where $ h $ is the step size an $ t_{i+1} = t_{i} + h. $
 			
+			\subsection*{The Truncation Errors}
+				the local truncation error is $ O(h^{3}) $. The modified Euler Method is second order accurate.
 			
-			\subsection{The Truncation Errors}
-			
-			
+			\clearpage
 			\subsection{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $
+				
+				\begin{algorithm}
+					\caption{:: Modified Euler's Method}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
+						\ENSURE approximation $ w $ to $ y $ at the $ N $ values of $ t $
+						\STATE $ h = (b - a) / N; \hspace*{0.2cm} t_0 = a; \hspace*{0.2cm} w_{0} = \alpha $
+						\FOR{$ i = 0, 1, 2, \cdots, N-1$}
+							\STATE $ \tilde{w}_{i+1} = w_{i} + hf(t_{i},w_{i}); $ \hspace*{0.5cm} \COMMENT{Compute rough (next) $ w_{i} $}
+							\STATE $ w_{i+1} = w_{i} + \frac{h}{2} \left[ f(t_{i},w_{i}) + f(t_{i} + h,\tilde{w}_{i+1}) \right]; $ \hspace*{0.5cm} \COMMENT{Compute corrected (next) $ w_{i} $}
+							\STATE $ t = a + ih $ \hspace*{0.5cm} \COMMENT{Compute next $ t_{i} $}
+						\ENDFOR
+						\RETURN $ (t, w) $
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
@@ -166,13 +194,32 @@
 	\section{The 2nd-Order Runge-Kutta Method} \label{m:rk2}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $
+				
+				\begin{algorithm}
+					\caption{:: 2nd-Order Runge-Kutta Method}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
+						\ENSURE approximation $ w $ to $ y $ at the $ N $ values of $ t $
+						\STATE $ h = (b - a) / N; \hspace*{0.2cm} t_0 = a; \hspace*{0.2cm} w_{0} = \alpha $
+						\FOR{$ i = 0, 1, 2, \cdots, N-1$}
+							\STATE $ k_{1} = f(t_{i},w_{i}); $ \hspace*{0.5cm} \COMMENT{Compute $ k_{1} $}
+							\STATE $ k_{2} = f\left(t_{i} + \frac{h}{2}, w_{i} + \frac{h}{2}k_{1}\right); $ \hspace*{0.5cm} \COMMENT{Compute $ k_{2} $}
+							\STATE $ w_{i+1} = w_{i} + hk_{2}; $ \hspace*{0.5cm} \COMMENT{Compute next $ w_{i} $}
+							\STATE $ t = a + ih $ \hspace*{0.5cm} \COMMENT{Compute next $ t_{i} $}
+						\ENDFOR
+						\RETURN $ (t, w) $
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
@@ -180,13 +227,35 @@
 	\section{The 4th-Order Runge-Kutta Method} \label{m:rk4}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
+				
+				\begin{algorithm}
+					\caption{:: 4th-Order Runge-Kutta Method}
+					\begin{algorithmic}[1]
+						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
+						\ENSURE approximation $ w $ to $ y $ at the $ N $ values of $ t $
+						\STATE $ h = (b - a) / N; \hspace*{0.2cm} t_0 = a; \hspace*{0.2cm} w_{0} = \alpha $
+						\FOR{$ i = 0, 1, 2, \cdots, N-1$}
+						\STATE $ k_{1} = f(t_{i},w_{i}); $ \hspace*{0.5cm} \COMMENT{Compute $ k_{1} \; to \; k_{4} $}
+						\STATE $ k_{2} = f\left(t_{i} + \frac{h}{2}, w_{i} + \frac{h}{2}k_{1}\right); $
+						\STATE $ k_{3} = f\left(t_{i} + \frac{h}{2}, w_{i} + \frac{h}{2}k_{2}\right); $
+						\STATE $ k_{4} = f\left(t_{i} + h, w_{i} + hk_{3}\right); $
+						\STATE $ K = k_{1} + 2k_{2} + 2k_{3} + k_{4}  $
+						\STATE $ w_{i+1} = w_{i} + \frac{h}{6}K; $ \hspace*{0.5cm} \COMMENT{Compute next $ w_{i} $}
+						\STATE $ t = a + ih $ \hspace*{0.5cm} \COMMENT{Compute next $ t_{i} $}
+						\ENDFOR
+						\RETURN $ (t, w) $
+					\end{algorithmic}
+				\end{algorithm}
 			
 		\end{spacing}
 		
@@ -194,13 +263,35 @@
 	\section{The Adams-Bashforth 4th-Order Explicit Method} \label{m:ab4e}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
+				To approximate the solution of the \ac{ivp} 
+				\[ y' = f(t,y), \hspace*{0.2cm} a \leq t \leq b, \hspace*{0.2cm} y(a) = \alpha \]
+				at $ N $ equally spaced numbers in the interval $ [a, b]: $ [\citenum{burden2015numerical}]
+				
+%				\begin{algorithm}
+%					\caption{:: 4th-Order Runge-Kutta Method}
+%					\begin{algorithmic}[1]
+%						\REQUIRE endpoints $ a, b $; \hspace*{0.2cm} integer $ N $; \hspace*{0.2cm} initial condition $ \alpha $
+%						\ENSURE approximation $ w $ to $ y $ at the $ N $ values of $ t $
+%						\STATE $ h = (b - a) / N; \hspace*{0.2cm} t_0 = a; \hspace*{0.2cm} w_{0} = \alpha $
+%						\FOR{$ i = 0, 1, 2, \cdots, N-1$}
+%						\STATE $ k_{1} = f(t_{i},w_{i}); $ \hspace*{0.5cm} \COMMENT{Compute $ k_{1} \; to \; k_{4} $}
+%						\STATE $ k_{2} = f\left(t_{i} + \frac{h}{2}, w_{i} + \frac{h}{2}k_{1}\right); $
+%						\STATE $ k_{3} = f\left(t_{i} + \frac{h}{2}, w_{i} + \frac{h}{2}k_{2}\right); $
+%						\STATE $ k_{4} = f\left(t_{i} + h, w_{i} + hk_{3}\right); $
+%						\STATE $ K = k_{1} + 2k_{2} + 2k_{3} + k_{4}  $
+%						\STATE $ w_{i+1} = w_{i} + \frac{h}{6}K; $ \hspace*{0.5cm} \COMMENT{Compute next $ w_{i} $}
+%						\STATE $ t = a + ih $ \hspace*{0.5cm} \COMMENT{Compute next $ t_{i} $}
+%						\ENDFOR
+%						\RETURN $ (t, w) $
+%					\end{algorithmic}
+%				\end{algorithm}
 			
 		\end{spacing}
 		
@@ -208,10 +299,10 @@
 	\section{The Adams 4th-Order Predictor-Corrector Method} \label{m:ab4pc}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
@@ -222,10 +313,10 @@
 	\section{The Runge-Kutta-Fehlberg Method} \label{m:rkf}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
@@ -236,10 +327,10 @@
 	\section{The Predictor-Corrector Method with variable step sizes} \label{m:abpcvs}
 		\begin{spacing}{1.2}
 			
-			\subsection{Introduction}
+			%\subsection{Introduction}
 			
 			
-			\subsection{The Truncation Errors}
+			\subsection*{The Truncation Errors}
 			
 			
 			\subsection{The Pseudocode}
