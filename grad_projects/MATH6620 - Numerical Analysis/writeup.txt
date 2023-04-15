@@ -1,0 +1,75 @@
+Brief introduction to ivp
+
+An Initial Value Problem is a differential equation together with one or more initial values.[1][2] It takes what would otherwise be an entire rainbow of possible solutions and whittles them down to one specific solution. The basic idea behind this problem is that, once you differentiate a function, you lose some information about that function, more specifically, you lose the constant. By integrating f'(x), you get a family of solutions that only differ by a constant. [0]. 
+
+Definition [2]
+
+definition 5.5 [4]
+
+Solved example [1]
+
+In real-life situations, the differential equation that models a problem is too complicated to solve exactly, therefore one of the ways which is used to solved such problems is using methods which approximates the solution of the original problem [4]. In this paper, we will discuss methods that approximates solutions at certain specified timestamps. The methods are: The Euler's, The Modified Euler's, The 2nd-Order Runge-Kutta, The 4th-Order Runge Kutta, The Adams-Bashforth 4th-Order Explicit, The Adams th-Order Predictor-Corrector, The Runge-Kutta-Fehlberg, and The Predictor-Corrector methods
+
+*** on the methods ***
+*** Intro, the truncation error, cost of computation (big o notation), the formula, the pseudocode ***
+*** including their schemes, error orders, number of function evaluations,
+
+*** Eulers Method
+*intro
+The Euler method, named after Leonhard Euler, was published in his three-volume work Institutiones calculi integralis in the years 1768 to 1770, and republished in his collected works. [euler, 1913] [8] The Euler method is a first-order numerical procedure for solving ordinary differential equations (ODEs) with a given initial value. It is the most basic explicit method for numerical integration of ordinary differential equations and is the simplest Runge–Kutta method. [5]
+The fundamental idea of the method is based on the principle that, we can compute (or approximate) the shape of an unknown curve - in the form of a differential equation f(t,y), which starts at a given point y0 and time t0. With this information known, we can proceed to calculate the slope (tangent line) of the curve at y0
+the tangent line [7]
+	eqn: tangent line
+Now we assume that f(t0, y0) is sufficiently accurate, and thus, taking a small step along that tangent line, we can approximate the actual value of the solution, y1, at timestamp t1, using the formula 
+	eqn: y1 [7]
+In general, we continue to find the next approximated solution yn+1 at tn+1, if we have the nth timestamp tn and the approximation to the solution at this point, yn. We only need to modify eqn y2 in this manner
+	eqn: gen eul eqn [7]
+
+*truncation errors
+1) The local truncation error of the Euler method is the error made in a single step. It is the difference between the numerical solution after one step, $y_{1}$, and the exact solution at time $t_{1}=t_{0}+h$.
+	eqn: lte [5]
+2) The global truncation error is the error at a fixed time $t_{i}$, after however many steps the method needs to take to reach that time from the initial time. The global truncation error is the cumulative effect of the local truncation errors committed in each step.[10]
+	eqn: [5]
+	where M is an upper bound on the second derivative of y on the given interval and L is the Lipschitz constant of f [10].
+
+*pseudocode
+
+*** modified euler
+* intro
+Euler's method is used as the foundation for Modified Euler's method. Euler's method uses the line tangent to the function at the beginning of the interval as an estimate of the slope of the function over the interval, assuming that if the step size is small, the error will be small. However, even when extremely small step sizes are used, over a large number of steps the error starts to accumulate and the estimate diverges from the actual functional value. [11]
+The Modified Euler (which may sparingly be referred to as the Heun's method [11]) was developed to improve the approximated solution at $t_{i+1} by taking the arithmetic average of of the approximated solution at the slopes $t_{i}$ and $t_{i+1}$.
+The procedure for calculating the numerical solution to the \ref{eq:ivp} by first computing the Euler method to rougly estimate the coordinates of the next point in the solution, and then, the original estimate is recalculated using the rough estimate [12]:
+	eqn [11]
+
+* truncation errors
+the local truncation error is O(h3). The modified euler method is second order accurate.
+
+***the midpoint method
+the midpoint method is a one-step method for numerically solving the differential equation \ref{eq:ivp}.
+
+
+
+references
+[0] https://www.kristakingmath.com/blog/solving-initial-value-problems
+
+[1] https://courses.lumenlearning.com/calculus2/chapter/initial-value-problems
+
+[2] https://en.wikipedia.org/wiki/Initial_value_problem
+
+[4] Numerical Analysis book burden and faires
+
+[5] https://en.wikipedia.org/wiki/Euler_method
+
+[6] https://www.freecodecamp.org/news/eulers-method-explained-with-examples/
+
+[7] https://tutorial.math.lamar.edu/classes/de/eulersmethod.aspx
+
+[8] butcher 
+
+[9] euler 1913
+
+[10] atkinson
+
+[11] https://en.wikipedia.org/wiki/Heun%27s_method
+
+[12] ch'enad
