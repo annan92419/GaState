@@ -1,0 +1,252 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[scale=0.75]{geometry}
+\usepackage{graphicx}
+\usepackage{multicol, multirow}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{setspace}
+\title{CSC6780 - Data Science; Assignemt 7}
+\author{Jesse Annan \hspace{0.5cm} $\|$ \hspace{0.5cm} ID: 002708111}
+\newcommand{\m}{\mathbb{M}}
+\newcommand{\mm}{\textbf{M}}
+\newcommand{\h}{\textbf{H}}
+\newcommand{\f}{\textbf{F}}
+\newcommand{\vv}{\textbf{V}}
+\newcommand{\cc}{\textbf{C}}
+\newcommand{\p}{\textbf{P}}
+\newcommand{\g}{\textbf{G}}
+\newcommand{\ag}{\textbf{A}}
+\newcommand{\pt}{\textbf{PT}}
+\newcommand{\pc}{\textbf{PC}}
+\begin{document}
+	\maketitle
+	
+	\clearpage
+	
+	\textbf{Question 1} $$\p(event) = \frac{\#coin flips \ \ \cc ombination \ \ \#exact heads}{2^{\#coin flips}}$$
+	
+	\begin{enumerate}
+		\item[(a)] Let A:= the probability that exactly two of them will get heads. \newline
+		$$\p(A) = \frac{3 \cc 2}{2^{3}} = \frac{3}{8}$$ 
+		
+		\item[(b)] Let B:= the probability that exactly eight eight of them will get heads. \newline
+		$$\p(B) = \frac{20 \cc 8}{2^{20}} \approx 0.12013435 $$
+		
+		\item[(c)] Let C:= the probability that at least four of them will get heads. %\newline
+		\begin{equation*}
+			\begin{split}
+				\p(C) & = 1 - \p(\leq \text{3 people getting heads}) \\
+				& = 1 - \left[ \frac{20 \cc 0}{2^{20}} + \frac{20 \cc 1}{2^{20}} + \frac{20 \cc 2}{2^{20}} + \frac{20 \cc 3}{2^{20}} \right] \\
+				\p(C) & \approx 0.99871159
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	
+	\newpage
+	
+	\textbf{Question 2} \begin{table}[h!]
+		\begin{tabular}{ccccc}
+			\toprule
+			 \textbf{ID} & \textbf{HEADACHE} & \textbf{FEVER} & \textbf{VOMITING} & \textbf{MENINGITIS} \\ \midrule
+			1 & true & true & false & false \\
+			2 & false & true & false & false \\
+			3 & true & false & true & false \\
+			4 & true & false & true & false \\
+			5 & false & true & false & true \\
+			6 & true & false & true & false \\
+			7 & true & false & true & false \\
+			8 & true & false & true & true \\
+			9 & false & true & false & false \\ 
+			10 & true & false & true & true  \\
+			\bottomrule
+		\end{tabular}
+		\end{table}
+	
+		Let \h := HEADACHE, \f := FEVER, \vv := VOMITING, \newline $\m$ := MENINGITIS, $\mm_{T}$ := MENINGITIS = True, $\mm_{F}$ := MENINGITIS = False
+	
+		\begin{enumerate}
+			\item[(a)] $\p(\text{\vv = True}) = \frac{6}{10}$
+			
+			\item[(b)] $\p(\text{\h = True}) = \frac{3}{10}$
+			
+			\item[(c)] \begin{equation*}
+				\begin{split}
+					\p(\text{\h = True,\; \vv = False}) & = \p(\text{\vv = False | \h = True}) \\
+					& \times \p(\text{\h = True}) \\
+					& = \frac{1}{7} \times \frac{7}{10} \\
+					\p(\text{\h = True,\; \vv = False}) & = \frac{1}{10}
+				\end{split}
+			\end{equation*}
+			
+			\item[(d)] $\p(\text{\vv = False | \h = True}) = \frac{1}{7}$
+			
+			\item[(e)] $\p(\m\text{ | \f = True, \vv = False}) = (\p(\text{$\mm_{T}$ | \f = True, \vv = False}) \;,\; \p(\text{$\mm_{F}$ | \f = True, \vv = False}))$ %\newline
+				\begin{equation*}
+					\begin{split}
+						\p(\text{$\mm_{T}$ | \f = True, \vv = False}) & = \frac{ \p(\text{\f = True, \vv = False | $\mm_{T}$}) \times \p(\mm_{T}) }{\p(\text{\f = True, \vv = False})} \\
+						& = \frac{ \p(\text{\f = True | $\mm_{T}$}) \times \p(\text{\vv = False | \f = True, $\mm_{T}$}) \times \p(\mm_{T}) }{\p(\text{\vv = False | \f = True}) \times \p(\text{\f = True})} \\
+						& = \frac{1/3 \times 1 \times 3/10}{1 \times 4/10} \\
+						\p(\text{$\mm_{T}$ | \f = True, \vv = False}) & = 0.25 \\
+						\p(\text{$\mm_{F}$ | \f = True, \vv = False}) & = \frac{ \p(\text{\f = True, \vv = False | $\mm_{F}$}) \times \p(\mm_{F}) }{\p(\text{\f = True, \vv = False})} \\
+						& = \frac{ \p(\text{\f = True | $\mm_{F}$}) \times \p(\text{\vv = False | \f = True, $\mm_{F}$}) \times \p(\mm_{F}) }{\p(\text{\vv = False | \f = True}) \times \p(\text{\f = True})} \\
+						& = \frac{3/7 \times 1 \times 7/10}{1 \times 4/10} \\
+						\p(\text{$\mm_{F}$ | \f = True, \vv = False}) & = 0.75
+					\end{split}
+				\end{equation*}
+				$\p(\m\text{ | \f = True, \vv = False}) = (0.25 \;,\; 0.75)$
+				
+		\end{enumerate}
+	
+	\newpage
+	
+	\textbf{Question 3} \begin{table}[h!]
+		\begin{tabular}{cccccc}
+			\toprule
+			\textbf{ID} & \textbf{OCCUPATION} & \textbf{GENDER} & \textbf{AGE} & \textbf{POLICY TYPE} & \textbf{PREF CHANNEL} \\ \midrule
+			1 & lab tech & female & 43 & planC & email \\
+			2 & farmhand & female & 57 & planA & phone \\
+			3 & biophysicist & male & 21 & planA & email \\ 
+			4 & sheriff & female & 47 & planB & phone \\
+			5 & painter & male & 55 & planC & phone \\
+			6 & manager & male & 19 & planA & email \\
+			7 & geologist & male & 49 & planC & phone \\
+			8 & messenger & male & 51 & planB & email \\
+			9 & nurse & female & 18 & planC & phone \\ \bottomrule 
+		\end{tabular}
+	\end{table}
+	
+	\begin{enumerate}
+		\item[(a)] $Bins = 3$ \newline
+			\textit{young} : \{18,\; 19,\; 21\} \hspace{1cm} \textit{middle-aged} : \{43,\; 47,\; 49\} \hspace{1cm} \textit{mature} : \{51,\; 55,\; 57\} \newline
+			Defining the range of the \textbf{AGE} column by averaging the ends from the above three levels:
+			\begin{table}[h]
+				\begin{tabular}{ccccc}
+					& & young & $\leq$ & 32 \\
+					32 & $<$ & middle-age & $\leq$ & 50 \\
+					50 & $<$ & mature & &
+				\end{tabular}
+			\end{table}
+			\begin{table}[h!]
+				\begin{tabular}{cccccc}
+					\toprule
+					\textbf{ID} & \textbf{OCCUPATION} & \textbf{GENDER} & \textbf{AGE} & \textbf{POLICY TYPE} & \textbf{PREF CHANNEL} \\ \midrule
+					1 & lab tech & female & middle-aged & planC & email \\
+					2 & farmhand & female & mature & planA & phone \\
+					3 & biophysicist & male & young & planA & email \\ 
+					4 & sheriff & female & middle-aged & planB & phone \\
+					5 & painter & male & mature & planC & phone \\
+					6 & manager & male & young & planA & email \\
+					7 & geologist & male & middle-aged & planC & phone \\
+					8 & messenger & male & mature & planB & email \\
+					9 & nurse & female & young & planC & phone \\ \bottomrule 
+				\end{tabular}
+			\end{table}
+		
+		\item[(b)] Take out \textbf{"ID" and "OCCUPATION"} \newline
+			This is because both ID and OCCUPATION have too many unique levels which will create a high dimensionality problem for any model.
+		
+		
+		\newpage
+		\item[(c)] Let \g := GENDER, \ag := AGE, \pt := POLICY TYPE, \pc := PREF CHANNEL
+			\begin{table}[h!]
+				\begin{tabular}{l|r}
+					\toprule
+					\p(\pc = email) = $\frac{4}{9}$ & \p(\pc = phone) = $\frac{5}{9}$ \\
+					\p(\pt = planA | \pc = email) = $\frac{2}{4}$ & \p(\pt = planA | \pc = phone) = $\frac{1}{5}$ \\
+					\p(\pt = planB | \pc = email) = $\frac{1}{4}$ & \p(\pt = planB | \pc = phone) = $\frac{1}{5}$ \\
+					\p(\pt = planC | \pc = email) = $\frac{1}{4}$ & \p(\pt = planC | \pc = phone) = $\frac{3}{5}$ \\
+					\p(\g = male | \pc = email) = $\frac{3}{4}$ & \p(\g = male | \pc = phone) = $\frac{2}{5}$ \\
+					\p(\g = female | \pc = email) = $\frac{1}{4}$ & \p(\g = female | \pc = phone) = $\frac{3}{5}$ \\
+					\p(\ag = young | \pc = email) = $\frac{2}{4}$ & \p(\ag = young | \pc = phone) = $\frac{1}{5}$ \\
+					\p(\ag = middle-age | \pc = email) = $\frac{1}{4}$ & \p(\ag = middle-age | \pc = phone) = $\frac{2}{5}$ \\
+					\p(\ag = mature | \pc = email) = $\frac{1}{4}$ & \p(\ag = mature | \pc = phone) = $\frac{2}{5}$ \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		
+		\item[(d)] \texttt{Query: GENDER = female, AGE = 30, POLICY = planA}
+		\begin{table}[h!]
+			\begin{tabular}{l|r}
+				\toprule
+				\p(\pc = email) = $\frac{4}{9}$ & \p(\pc = phone) = $\frac{5}{9}$ \\
+				\p(\pt = planA | \pc = email) = $\frac{2}{4}$ & \p(\pt = planA | \pc = phone) = $\frac{1}{5}$ \\
+				\p(\g = female | \pc = email) = $\frac{1}{4}$ & \p(\g = female | \pc = phone) = $\frac{3}{5}$ \\
+				\p(\ag = young | \pc = email) = $\frac{2}{4}$ & \p(\ag = young | \pc = phone) = $\frac{1}{5}$ \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+	
+		\p(\pc = email | \pt = planA, \g = female, \ag = young) = $ \frac{1}{4} \times \frac{2}{4} \times \frac{2}{4} \times \frac{4}{9} = \frac{1}{36} \approx 0.0277\dot{7} $ \newline
+		\p(\pc = phone | \pt = planA, \g = female, \ag = young) = $ \frac{3}{5} \times \frac{1}{5} \times \frac{1}{5} \times \frac{5}{9} = \frac{1}{75} \approx 0.0133\dot{3} $ \newline \newline
+		\texttt{Query Prediction: "email"}
+	
+	\end{enumerate}
+	
+	\newpage
+	
+	\textbf{Question 4} size of entertainment = 700 \hspace{1cm} size of education = 300
+		\begin{table}[h!]
+			\begin{tabular}{cccccc}
+				\toprule
+				\multicolumn{6}{c}{Word-document counts for the entertainment dataset:} \\ \midrule
+				fun & is & machine & christmas & family & learning \\
+				415 & 695 & 35 & 0 & 400 & 70 \\
+				\midrule
+				\multicolumn{6}{c}{Word-document counts for the education dataset:} \\ \midrule
+				fun & is & machine & christmas & family & learning \\
+				200 & 295 & 120 & 0 & 10 & 105 \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		
+		\begin{enumerate}
+			\item[(a)] \texttt{Query: "machine learning is fun"}
+				\begin{table}[h!]
+					\begin{tabular}{lcc}
+						\p(entertainment) & = & $\frac{700}{1000}$ \\
+						\p(machine | entertainment) & = & $\frac{35}{700}$ \\
+						\p(learning | entertainment) & = & $\frac{70}{700}$ \\
+						\p(is | entertainment) & = & $\frac{695}{700}$ \\
+						\p(fun | entertainment) & = & $\frac{415}{700}$ \\
+						\p(education) & = & $\frac{300}{1000}$ \\
+						\p(machine | education) & = & $\frac{120}{300}$ \\
+						\p(learning | education) & = & $\frac{105}{300}$ \\
+						\p(is | education) & = & $\frac{295}{300}$ \\
+						\p(fun | education) & = & $\frac{200}{300}$ \\
+					\end{tabular}
+				\end{table}
+			
+				case 1: $\frac{700}{1000} \times \frac{35}{700} \times \frac{70}{700} \times \frac{695}{700} \times \frac{415}{700} \approx 0.00206179 $ \newline \newline
+				case 2: $ \frac{300}{1000} \times \frac{120}{300} \times \frac{105}{300} \times \frac{295}{300} \times \frac{200}{300} \approx 0.02753333 $ \newline \newline
+				\texttt{Query Prediction: "education"}
+			
+			\item[(b)] \texttt{Query: "christmas family fun"}
+			\begin{table}[h!]
+				\begin{tabular}{lcc}
+					\p(entertainment) & = & $\frac{700}{1000}$ \\
+					\p(christmas | entertainment) & = & $0$ \\
+					\p(family | entertainment) & = & $\frac{400}{700}$ \\
+					\p(fun | entertainment) & = & $\frac{415}{700}$ \\
+					\p(education) & = & $\frac{300}{1000}$ \\
+					\p(christmas | education) & = & $0$ \\
+					\p(family | education) & = & $\frac{10}{300}$ \\
+					\p(fun | education) & = & $\frac{200}{300}$ \\
+				\end{tabular}
+			\end{table}
+			
+			case 1: $\frac{700}{1000} \times 0 \times \frac{400}{700} \times \frac{415}{700} = 0 $ \newline \newline
+			case 2: $ \frac{300}{1000} \times 0 \times \frac{10}{300} \times \frac{200}{300} = 0 $ \newline \newline
+			\texttt{Query Prediction: N/A}
+			
+			\item[(c)]  
+		\end{enumerate}
+		
+		
+	
+		
+	
+\end{document}

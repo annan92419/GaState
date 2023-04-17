@@ -1,0 +1,132 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[scale=0.75]{geometry}
+\usepackage{graphicx}
+\usepackage{multicol, multirow}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{setspace}
+\title{CSC6780 - Data Science; Assignment 8}
+\author{Jesse Annan \hspace{0.5cm} $\|$ \hspace{0.5cm} ID: 002708111}
+\newcommand{\m}{\mathbb{M}}
+\newcommand{\mm}{\textbf{M}}
+\newcommand{\h}{\textbf{H}}
+\newcommand{\f}{\textbf{F}}
+\newcommand{\vv}{\textbf{V}}
+\newcommand{\cc}{\textbf{C}}
+\newcommand{\p}{\textbf{P}}
+\newcommand{\g}{\textbf{G}}
+\newcommand{\ag}{\textbf{A}}
+\newcommand{\pt}{\textbf{PT}}
+\newcommand{\pc}{\textbf{PC}}
+\begin{document}
+	\maketitle
+	
+	\clearpage
+	
+	\textbf{Question 1} \newline \\ \textit{Find data in the attached notebook.}
+		\begin{enumerate}
+			\item[(i)] The sums of squared errors
+				\begin{equation*}
+					\begin{split}
+						\textbf{Error[Model 1 Prediction]} & = \frac{1}{2} \sum_{1}^{30} (Target[i] - Model1 Prediction[i]) ^ 2 \\
+						& = 16750 \\
+						\textbf{Error[Model 2 Prediction]} & = \frac{1}{2} \sum_{1}^{30} (Target[i] - Model2 Prediction[i]) ^ 2 \\
+						& = 47369 \\
+					\end{split}
+				\end{equation*}
+			
+			\item[(ii)] The $R^2$ measure
+				\begin{equation*}
+					\begin{split}
+						\textbf{$R^2$ [Model 1 Prediction]} & = 1 - \frac{ \frac{1}{2} \sum_{1}^{30} (Target[i] - Model1 Prediction[i]) ^ 2 }{ \frac{1}{2} \sum_{1}^{30} (Target[i] - Target\_mean) ^ 2 }  \\
+						& \approx 0.92844 \\
+						\textbf{$R^2$ [Model 2 Prediction]} & = 1 - \frac{ \frac{1}{2} \sum_{1}^{30} (Target[i] - Model2 Prediction[i]) ^ 2 }{ \frac{1}{2} \sum_{1}^{30} (Target[i] - Target\_mean) ^ 2 }  \\
+						& \approx 0.79762
+					\end{split}
+				\end{equation*}
+		\end{enumerate}
+	
+	\newpage
+	
+	\textbf{Question 2} \newline \\ Model: \newline
+	\texttt{HEATING LOAD = -26.030 + 0.0497 x SURFACE AREA + 4.942 x HEIGHT - 0.090 x ROOF AREA + 20.523 \hspace*{2.7cm} x GLAZING AREA}
+	\begin{equation*}
+		\begin{split}
+			\texttt{ID1: Heating Load} & = - 26.030 + 0.0497 * 784.0 + 4.942 * 3.5 - 0.090 * 220.5 + 20.523 * 0.25 \\
+			& 15.51755 \\
+			\texttt{ID2: Heating Load} & = - 26.030 + 0.0497 * 710.5 + 4.942 * 3.0 - 0.090 * 210.5 + 20.523 * 0.10 \\
+			& 7.21515 \\
+			\texttt{ID3: Heating Load} & = - 26.030 + 0.0497 * 563.5 + 4.942 * 7.0 - 0.090 * 122.5 + 20.523 * 0.40 \\
+			& 33.75415 \\
+			\texttt{ID4: Heating Load} & = - 26.030 + 0.0497 * 637.0 + 4.942 * 6.0 - 0.090 * 147.0 + 20.523 * 0.60 \\
+			& 34.3647 \\
+		\end{split}
+	\end{equation*}
+	
+	\newpage
+	
+	\textbf{Question 3} \newline \\ \texttt{Imputation} \newline
+		age[3] = 32.7 \hspace{1cm} and \hspace{1cm} socio\_economic\_band[5] = 'a' \newline \\
+		\texttt{Normalized Features}
+		\begin{table}[h!]
+			\begin{tabular}{ccccc}
+			\toprule
+			\textbf{ID} & \textbf{AGE} & \textbf{SOCIO ECONOMIC BAND} & \textbf{SHOP FREQUENCY} & \textbf{SHOP VALUE} \\ \midrule
+			1 & -0.11111 & a & -0.34615 & 0.42127 \\
+			2 & 0.68889 & b & -0.46154 & -0.07559 \\
+			3 & -1.00000 & c & 1.23077 & -0.95490 \\
+			4 & -0.34667 & b & -0.56538 & 0.76890 \\
+			5 & 0.95556 & a & -0.75000 & -0.06513 \\ 
+			\bottomrule 
+		\end{tabular}
+		\end{table}
+		
+		\begin{equation*}
+			\begin{split}
+				\texttt{Logistic(X)} & = \frac{1}{1 + \exp{(-X)}} \\
+				ID1\_wd & = 0.6679 - 0.5795 * -0.11111 + 0 + 2.0499 * -0.34615 + 3.4091 * 0.42127 \\
+				ID1 & = \texttt{Logistic(ID1\_wd)} \approx 0.811357 \\
+				ID2\_wd & = 0.6679 - 0.5795 * 0.68889 - 0.1981 + 2.0499 * -0.46154 + 3.4091 * -0.07559 \\
+				ID2 & = \texttt{Logistic(ID2\_wd)} \approx 0.243571 \\
+				ID3\_wd & = 0.6679 - 0.5795 - 1 - 0.2318 + 2.0499 * 1.23077 + 3.4091 * -0.95490 \\
+				ID3 & = \texttt{Logistic(ID3\_wd)} \approx 0.570335 \\
+				ID4\_wd & = 0.6679 - 0.5795 * -0.34667 - 0.1981 + 2.0499 * -0.56538 + 3.4091 * 0.76890 \\
+				ID4 & = \texttt{Logistic(ID4\_wd)} \approx 0.894065 \\
+				ID5\_wd & = 0.6679 - 0.5795 * 0.95556 + 0 + 2.0499 * -0.75000 + 3.4091 * -0.06513 \\
+				ID5 & = \texttt{Logistic(ID5\_wd)} \approx 0.161744
+			\end{split}
+		\end{equation*}
+	
+	\newpage
+	
+	\textbf{Question 4} 
+		\begin{enumerate}
+			\item[(a)] Yes,  with a reasonable choice of k. Similarity-based predictive modeling approach (KNN) will be a good choice for this data set.
+			
+			\item[(b)] \begin{equation*}
+				\begin{split}
+					\texttt{Logistic(X)} & = \frac{1}{1 + \exp{(-X)}} \\
+					ID1\_wd & = -0.848 * (1) + 1.545 * (0.50) - 1.942 * (0.75) + 1.973 * (0.50^2) \\
+					& + 2.495 * (0.75^2) + 0.104 * (0.50^3) + 0.095 * (0.75^3) + 3.009 * (0.50 * 0.75) \\
+					ID1 & = \texttt{Logistic(ID1\_wd)} \approx 0.824356 \\
+					ID2\_wd & = -0.848 * (1) + 1.545 * (0.10) - 1.942 * (0.75) + 1.973 * (0.10^2) \\
+					& + 2.495 * (0.75^2) + 0.104 * (0.10^3) + 0.095 * (0.75^3) + 3.009 * (0.10 * 0.75) \\
+					ID2 & = \texttt{Logistic(ID1\_wd)} \approx 0.386754 \\
+					ID3\_wd & = -0.848 * (1) + 1.545 * (-0.47) - 1.942 * (-0.39) + 1.973 * (-0.47^2) \\
+					& + 2.495 * (-0.39^2) + 0.104 * (-0.47^3) + 0.095 * (-0.39^3) + 3.009 * (-0.47 * -0.39) \\
+					ID3 & = \texttt{Logistic(ID1\_wd)} \approx 0.630339 \\
+					ID4\_wd & = -0.848 * (1) + 1.545 * (-0.47) - 1.942 * (0.18) + 1.973 * (-0.47^2) \\
+					& + 2.495 * (0.18^2) + 0.104 * (-0.47^3) + 0.095 * (0.18^3) + 3.009 * (-0.47 * 0.18) \\
+					ID4 & = \texttt{Logistic(ID1\_wd)} \approx 0.158179 \\
+				\end{split}
+			\end{equation*}
+		\end{enumerate}
+		
+	
+		
+	
+\end{document}
