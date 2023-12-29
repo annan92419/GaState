@@ -1,0 +1,56 @@
+\section[Understanding Diverse Corpora for Emotion Recognition]{Understanding Diverse Corpora for Emotion \newline Recognition}
+
+The pursuit of creating an empathetic system capable of recognizing emotional cues to enhance its performance in specified tasks has motivated the assembly of realistic emotionally annotated datasets. Two prominent corpora for the \ac{erc} task are the \ac{iemocap} \cite{iemocap} and the \ac{meld} \cite{meld}, an extension of the earlier dyadic datasets, EmotionLines \cite{emotionlines}. \ac{iemocap} emphasizes the significance of multi-modal data in understanding emotions, given that emotions are conveyed through both verbal and non-verbal channels. This benchmark comprises approximately 12 hours of recorded video involving ten actors (five females, five males) engaged in dyadic sessions. These sessions encompass facial expressions and motion capture during spontaneous and scripted communication. The emotional categories in \ac{iemocap} include anger, happiness, sadness, neutral, excitement, and frustration. Additionally, it provides continuous emotions such as activation, valence, and dominance. \ac{meld} introduces a multi-party conversation setting that is more challenging to classify than the dyadic variants available in previous datasets \cite{iemocap, emotionlines, semaine}. Each utterance in \ac{meld} is annotated with emotion and sentiment labels, covering audio, visual, and textual modalities. \ac{meld} extends EmotionLines by annotating emotions across multiple modalities (text, audio, and visual) and accurately tracking the timestamps of utterances within the same episodes (see Table \ref{tab:meldtime}). EmotionLines, which solely focused on textual data, in some instances sampled utterances from different episodes, potentially introducing noise due to the lack of contextual relevance between previous and current utterances or emotional states of the interlocutors(see Table \ref{tab:meldvemol}). SEMAINE \cite{semaine} and AVEC \cite{avec2012} represent two multi-modal datasets widely utilized in \ac{erc}. The SEMAINE dataset involves interactions between a human and an operator (either a machine or a person simulating a machine). AVEC, a subset of the SEMAINE, is an ongoing series of challenges centered around recognizing continuous emotional states like arousal, valence, and dominance. There are additional multi-modal emotion and sentiment analysis datasets, as highlighted in \cite{meld}, such as MOUD \cite{moud} and MOSI \cite{mosi}. However, these datasets contain individual narratives rather than dialogues. Uni-modal (textual) dataset such as ALM \cite{alm} and ISEAR \cite{isear} are also two favoured benchmarks for \ac{erc} in text \cite{ercontextsota}. ALM entails sentence-level annotation labels for around 185 children's stories, including those from Grimm and Potter. In contrast, ISEAR is a dataset formulated by a group of psychologists, encompassing reported situations where students experienced emotions like joy, fear, anger, sadness, disgust, shame, and guilt.
+
+\section{Multi-modal Corpora Comparison}
+
+\begin{table}[h!] 
+    \centering
+	\begin{tabular}{cccccccc}
+		\toprule
+		\multirow{2}{*}{Dataset} & \multirow{2}{*}{Type} & \multicolumn{3}{c}{\# dialogues} & \multicolumn{3}{c}{\# utterances} \\ \cline{3-8}
+        & & train & dev & test & train & dev & test \\ \midrule
+        \ac{iemocap} \cite{iemocap} & acted & \multicolumn{2}{c}{120} & 31 & \multicolumn{2}{c}{5810} & 1623 \\
+        SEMAINE \cite{semaine} & acted & \multicolumn{2}{c}{58} & 22 & \multicolumn{2}{c}{4386} & 1430 \\
+        \ac{meld} \cite{meld} & acted & 1039 & 114 & 280 & 9989 & 1109 & 2610 \\ \bottomrule
+	\end{tabular}
+    \captionsetup{width=0.7\linewidth}
+    \caption[Comparison among IEMOCAP, SEMAINE, and MELD datasents]{Comparison among IEMOCAP, SEMAINE, and MELD datasents. The utterances in MELD is nearly double the size of the other datasets. \textit{(Source: \cite{meld})}}
+    \label{tab:copuscompare}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{ccccccc}
+        \toprule
+        \multirow{2}{*}{Utterance} & \multirow{2}{*}{S} & \multirow{2}{*}{E} & \multicolumn{2}{c}{Incorrect Splits} & \multicolumn{2}{c}{Corrected Splits} \\ \cline{4-7}
+        & & & Start Time & End Time & Start Time & End Time \\ \midrule
+        Chris says they're & \multirow{2}{*}{3} & \multirow{2}{*}{6} & \multirow{2}{*}{00:05:57,023} & \multirow{2}{*}{00:05:59,691} & \multirow{2}{*}{00:05:57,023} & \multirow{2}{*}{00:05:58,734} \\
+        closing down the bar & & & & & & \\
+        No way! & 3 & 6 & 00:05:57,023 & 00:05:59,691 & 00:05:58,734 & 00:05:59,691 \\ \bottomrule
+    \end{tabular}
+    \captionsetup{width=\linewidth}
+    \caption[Timestamp alignment using Gentle alignment tool]{Example of timestamp alignment using Gentle alignment tool. \textit{(Source: \cite{meld})}}
+    \label{tab:meldtime}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{cccccc}
+        \toprule
+        S & E & Utterance & Speaker & Emotion & Sentiment \\ \midrule
+        \multirow{6}{*}{6} & \multirow{6}{*}{4} & What are you talking about? & \multirow{3}{*}{Joey} & \multirow{3}{*}{surprise} & \multirow{3}{*}{negative} \\
+        & & I never left you! & & & \\
+        & & You've always been my agent! & & & \\
+        & & Really?! & Estelle & surprise & positive \\
+        & & Yeah! & Joey & joy & positive \\
+        & & Oh well, no harm, no foul. & Estelle & neutral & neutral \\ \hdashline
+        \multirow{4}{*}{5} & \multirow{4}{*}{20} & \textcolor{red}{Okay, you guys free tonight?} & \textcolor{red}{Gray} & \textcolor{red}{neutral} & \textcolor{red}{neutral} \\
+        & & \textcolor{red}{Yeah!!} & \textcolor{red}{Ross} & \textcolor{red}{joy} & \textcolor{red}{positive} \\
+        & & \textcolor{red}{Tonight? You-you didn't say} & \multirow{2}{*}{\textcolor{red}{Chandler}} & \multirow{2}{*}{\textcolor{red}{surprise}} & \multirow{2}{*}{\textcolor{red}{negative}} \\
+        & & \textcolor{red}{it was going to be at nighttime.} & & & \\ \bottomrule
+    \end{tabular}
+    \captionsetup{width=0.85\linewidth}
+    \caption[EmotionLines utterances from two different episodes]{A dialogue in EmotionLines where utterances from two different episodes are present. \textit{(Source: \cite{meld})}}
+    \label{tab:meldvemol}
+\end{table}

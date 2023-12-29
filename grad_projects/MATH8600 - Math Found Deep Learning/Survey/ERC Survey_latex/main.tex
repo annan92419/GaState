@@ -1,0 +1,66 @@
+\documentclass[hidelinks, 12pt, oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{commath,mathtools,bm}
+\usepackage{algorithm,algorithmic}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{arydshln}
+\usepackage{titlesec}
+\usepackage{multirow, multicol, booktabs}
+\usepackage[printonlyused]{acronym}
+\usepackage[sort,nocompress]{cite}
+\graphicspath{{images/}}
+
+\begin{document}
+
+\frontmatter
+\input{titlepage}
+
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\chapter*{ABSTRACT}
+\input{abstract}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+\chapter*{List of Abbreviations}
+\input{abbrevs}
+
+
+
+
+
+\mainmatter
+\chapter{INTRODUCTION}
+\input{chapters/intro}
+
+\chapter{CORPORA EXPLORATION}
+\input{chapters/copora}
+
+\chapter{METHODS OF EMOTION RECOGNITION IN CONVERSATION}
+\input{chapters/method}
+
+\chapter{SUMMARY}
+\input{chapters/summary}
+
+\chapter{REMARKS}
+\input{chapters/remark}
+
+
+
+
+
+\backmatter
+\addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+\bibliographystyle{abbrv}
+\bibliography{ref_main}
+
+\end{document}
