@@ -5,7 +5,8 @@
 ### Degree: Master of Science
 ### Major: Mathematics
 ### Concentration: Scientific Computing
-### [GPA: 3.87](https://github.com/annan92419/GaState/blob/main/cv_transcript/Jesse%20Annan%20-%20Transcript.pdf)
+### GPA: 3.87
+### [Current CV](https://drive.google.com/file/d/1J_LgsIXVYNn0hWT-W7BWEpOJnKcTWFCm/view?usp=sharing)
 
 ---
 
