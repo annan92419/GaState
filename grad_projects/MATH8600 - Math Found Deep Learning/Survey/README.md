@@ -1,4 +1,4 @@
-# [Deciphering Emotions: A Survey of Conversation-based Recognition Methods](https://youtu.be/udo19ynnMaY)
+# Deciphering Emotions: A Survey of Conversation-based Recognition Methods
 
 ---
 
