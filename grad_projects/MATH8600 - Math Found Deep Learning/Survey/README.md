@@ -23,21 +23,21 @@ potential directions for future research.
 
 ### Current ERC Models
 
-| Model             | Year | IEMOCAP [6] | MELD [29] |
+| Model             | Year | IEMOCAP | MELD |
 |-------------------|:----:|------------:|----------:|
 | CNN [x]           | 2014 |      48.18  |     55.02 |
 | CMN [x]           | 2018 |      56.13  |      --  |
 | DialogueRNN [x]   | 2018 |      62.75  |     57.03 |
 | Hi-Trans [x]      | 2020 |      64.50  |     61.94 |
 | DialogXL [x]      | 2020 |      65.94  |     62.41 | 
-| EmoBERTa [x]      | 2020 |      67.42  |     65.61 | 
-| M2FNet [x]        | 2022 |      66.20  |     66.23 | 
+| EmoBERTa [x]      | 2020 |      **67.42**  |     65.61 | 
+| M2FNet [x]        | 2022 |      66.20  |     **66.23** | 
 | MultiEMO [x]      | 2023 |      64.48  |     61.23 | 
 | BC-LSTM [\+]       | 2017 |      56.19  |     56.32 | 
 | DialogueTRM [\+]   | 2020 |      69.23  |     63.55 | 
 | M2FNet [\+]        | 2022 |      69.89  |     66.71 | 
 | FacialMMT [\+]     | 2023 |       --     |     66.58 | 
-| MultiEMO [\+]      | 2023 |      72.84  |     66.74 | 
+| MultiEMO [\+]      | 2023 |      **72.84**  |     **66.74** | 
 
 **Table 3.1: Quantitative (F1 weighted average score) comparison with <br>
 text-only and multi-modal based on IEMOCAP and MELD benchmarks.**
