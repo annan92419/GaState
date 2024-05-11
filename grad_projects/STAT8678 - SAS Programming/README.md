@@ -45,6 +45,3 @@ The dataset used in this project was sourced from [UC Irvine Machine Learning Re
 | G1 | first period grade (numeric) |
 | G2 | second period grade (numeric) |
 | G3 | final grade (numeric, output target) |
-
-
-
