@@ -1,13 +1,10 @@
 #  [Georgia State University](https://www.gsu.edu/)
 
 ---
+### MS Mathematics (Scientific Computing) ✔️
 
-### 1st Degree: Master of Science
-### Major: Mathematics 24"
-### Concentration: Scientific Computing
+### PhD in Computer Science ⏲️
 
-### 2nd Degree: Master of Science
-### Major: Computer Science 26"
 ### [Current CV](https://drive.google.com/file/d/1J_LgsIXVYNn0hWT-W7BWEpOJnKcTWFCm/view?usp=sharing)
 
 ---
