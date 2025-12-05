@@ -179,6 +179,7 @@ xFPL/
 │   ├── next.config.js
 │   └── ...
 │
+├── requirements.txt
 └── README.md
 ```
 
